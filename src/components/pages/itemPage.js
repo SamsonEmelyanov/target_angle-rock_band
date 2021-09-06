@@ -49,9 +49,9 @@ class ItemPage extends Component {
                      <div className="menu__title">{title}</div>
                     <img className="menu__img" src={url} alt={title}></img>
                     <div className="menu__category">Category: <span>{category}</span></div>
-                    <div className="menu__price">Price: <span>{price}$</span></div>
+                    <div className="menu__price">Price: <span>{price}р.</span></div>
                     <button onClick = {()=>this.props.addedToCart(id)} className="menu__btn">Add to cart</button>
-                    <span className = {`menu__category_Img ${category}`}></span> 
+                    <span className = {`menu__category_Img ${category}`}></span>
                 </div>
             </div>
         );
