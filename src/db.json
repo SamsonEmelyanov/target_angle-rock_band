@@ -1,0 +1,32 @@
+{
+  "menu": [
+    {
+      "title": "T-short",
+      "price": 1500,
+      "url": "https://sun9-79.userapi.com/impg/fUY8G0V5tSqKcuBbuuqAv8cLfy-7oM75PzXknQ/xVS4ut8z-oQ.jpg?size=1680x1696&quality=96&sign=1e4f907becf27122109400fbbfce1be6&type=album",
+      "category": "t-shorts",
+      "id": 1
+    },
+    {
+      "title": "Cup",
+      "price": 500,
+      "url": "https://sun9-31.userapi.com/impg/4PFMnEPiLwHPIk19oMoMsG2GQ6TIqlUAG-ewhw/xN4wNgl3zGg.jpg?size=1000x1000&quality=96&sign=7147eb7a87162a3827b9224e2803238c&type=album",
+      "category": "cups",
+      "id": 2
+    },
+    {
+      "title": "Bracelet",
+      "price": 1000,
+      "url": "https://sun9-42.userapi.com/impg/3LM-zsEFFEB2WCIjixHnVhDq1ssXuWyvH9POHQ/8GoHPyrh3U0.jpg?size=800x800&quality=96&sign=f80ed15cb0a9fae21d3d16c6764f5cd0&type=album",
+      "category": "bracelets",
+      "id": 3
+    },
+    {
+      "title": "Label",
+      "price": 500,
+      "url": "https://sun9-86.userapi.com/impg/pov5Rh9rSQoMlcmC5uvY6QZdgH6vVzb6Rbuctg/pe5L8lpsCbU.jpg?size=1500x1500&quality=96&sign=2a926d7a8ce0d92e14aafa33d9e78d64&type=album",
+      "category": "labels",
+      "id": 4
+    }
+  ]
+}
