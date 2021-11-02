@@ -1,36 +1,67 @@
 .menu__item {
   width: 350px;
   min-height: 400px;
-  background-color: #fff;
   box-shadow: 5px 5px 45px rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 20px;
   margin-right: 40px;
   margin-bottom: 40px; }
 .menu__title {
-  font-size: 22px;
   margin-bottom: 20px;
-  text-align: center; }
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 17px;
+  color: #F7F7F7; }
 .menu__img {
   width: calc(100% + 40px);
   transform: translateX(-20px);
-  height: 240px;
+  height: auto;
   object-fit: cover;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  background: #F7F7F7; }
 .menu__category, .menu__price {
-  font-size: 18px;
-  font-weight: 300;
-  margin-bottom: 10px; }
+  display: inline-block;
+  padding-top: 17.81px;
+  text-align: center;
+  width: 94px;
+  height: 51.45px;
+  margin-bottom: 10px;
+  margin-right: 28px;
+  background-color: #FF7000;
+  font-family: 'Lato',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 17px;
+  color: #FFFFFF; }
   .menu__category span, .menu__price span {
     font-weight: 700; }
+  .menu__category-wrapper, .menu__price-wrapper {
+    display: flex; }
 .menu__btn {
-  width: 150px;
-  height: 40px;
-  border: none;
-  background-color: #29a745;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer; }
+  padding-top: 16.82px;
+  padding-left: 29.8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0;
+  width: 206px;
+  height: 52px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #F7F7F7;
+  border: 1px solid #FF7000;
+  box-sizing: border-box;
+  border-right: 9px solid #FF7000;
+  background: url("Vector (2).svg") no-repeat right 25.8px top 17.81px; }
 
 /*# sourceMappingURL=menu-list-item.css.map */

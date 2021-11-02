@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 const AppHeader = ({totalPrice}) => {
 
     return (
+        <>
         <header className="header">
             <Link to ={'/'} className = "header__link">Menu</Link>
             <Link to = "/cart" className = "header__link">
@@ -14,6 +15,8 @@ const AppHeader = ({totalPrice}) => {
                 Total: {totalPrice} р.
             </Link>
         </header>
+    <div className="shop-title">МАГАЗИН</div>
+            </>
     )
 };
 
