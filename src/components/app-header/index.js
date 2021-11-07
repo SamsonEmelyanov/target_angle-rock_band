@@ -1,3 +1,4 @@
-import AppHeader from './app-header';
+import MainPageHeader from './main-page-header';
+import MainPage from "../main-page/main-page";
 
-export default AppHeader;
+export default MainPageHeader;

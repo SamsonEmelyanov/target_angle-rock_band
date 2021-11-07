@@ -40,7 +40,8 @@
   .menu__category span, .menu__price span {
     font-weight: 700; }
   .menu__category-wrapper, .menu__price-wrapper {
-    display: flex; }
+    display: flex;
+    justify-content: space-between; }
 .menu__btn {
   padding-top: 16.82px;
   padding-left: 29.8px;
@@ -49,8 +50,8 @@
   display: flex;
   justify-content: space-between;
   margin-left: 0;
-  width: 206px;
-  height: 52px;
+  width: 162px;
+  height: 51.45px;
   font-family: "Lato", sans-serif;
   font-style: normal;
   font-weight: normal;

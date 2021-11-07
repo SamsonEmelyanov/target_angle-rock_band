@@ -28,15 +28,15 @@ class MenuList extends Component {
             return <Spinner/>
         }
         const items = menuItems.map(menuItem => {
-                return ( <MenuListItem 
-                            key = {menuItem.id} 
+                return ( <MenuListItem
+                            key = {menuItem.id}
                             menuItem = {menuItem }
                             onAddToCart = {() => addedToCart(menuItem.id)}/>
                 )
             })
 
         return (
-            <View items = {items}/> 
+            <View items = {items}/>
             )
     }
 };
@@ -51,7 +51,7 @@ const mapStateToProps =  (state) =>{
 
 
 const mapDispatchToProps = {
-    menuLoaded: menuLoaded,
+    menuLoaded,
     menuRequested,
     menuError,
     addedToCart
@@ -64,7 +64,7 @@ const View = ({items}) => {
         <ul className="menu__list">
             {items}
         </ul>
-    ) 
+    )
 }
 
 export default WithRestoService ()( connect(mapStateToProps, mapDispatchToProps)(MenuList) );

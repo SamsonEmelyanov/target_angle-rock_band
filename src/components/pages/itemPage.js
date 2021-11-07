@@ -8,7 +8,6 @@ import {menuLoaded, menuRequested, menuError, addedToCart} from '../../actions';
 import './itemPage.css';
 
 
-
 class ItemPage extends Component {
 
     componentDidMount() {
@@ -38,8 +37,8 @@ class ItemPage extends Component {
                 </div>
             )
         }
-        const item = menuItems.find(el => +el.id === +this.props.match.params.id)
-        const{title, url, category, price, id} = item;
+        const item = menuItems.find(el => +el.id === +this.props.match.params.id);
+        const{title, url, price, id} = item;
         //console.log(this.props.menuItems)
 
 
@@ -71,7 +70,7 @@ const mapStateToProps =  (state) =>{
 
 
 const mapDispatchToProps = {
-    menuLoaded: menuLoaded,
+    menuLoaded,
     menuRequested,
     menuError,
     addedToCart

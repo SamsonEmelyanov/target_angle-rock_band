@@ -7,7 +7,7 @@ import './cart-table.scss';
 
 const CartTable = ({items, deleteFromCart, RestoService}) => {
     if( items.length === 0){
-        return (<div className="cart__title"> Ваша корзина пуста :( </div>)
+        return (<div className="cart__title"> Ваша корзина пуста... </div>)
     }
     return (
         <>

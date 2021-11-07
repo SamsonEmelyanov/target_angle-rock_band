@@ -9,12 +9,12 @@ import './menu-list-item.scss';
 // }
 
 const MenuListItem = ( {menuItem, onAddToCart}) => {
-    const {title, price, url, category} = menuItem;
+    const {title, price, url} = menuItem;
 
     return (
         <>
             <li className="menu__item">
-                <Link style={{textDecoration:'none'}} to = {`/${menuItem.id}`}>
+                <Link style={{textDecoration:'none'}} to = {`/shop/${menuItem.id}`}>
                     <img className="menu__img" src={url} alt={title}></img>
                     <div className="menu__title">{title}</div>
                 </Link>
@@ -26,9 +26,7 @@ const MenuListItem = ( {menuItem, onAddToCart}) => {
                         } }
                         className="menu__btn">КУПИТЬ</button>
                     </div>
-
             </li>
-
         </>
     )
 }

@@ -10,17 +10,17 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-menu">
                 <ul className="menu-left menu-left__footer">
-                    <li><a href="../history/history.html">История</a></li>
-                    <li><a href="../musicians/musicians.html">Музыканты</a></li>
-                    <li><a href="../audio/audio.html">Аудио</a></li>
-                    <li><a href="../video/video.html">Видео</a></li>
+                    <li><Link to = {'/history-footer'}>История</Link></li>
+                    <li><Link to = {'/musicians-footer'}>Музыканты</Link></li>
+                    <li><Link to = "/audio-footer">Аудио</Link></li>
+                    <li><Link to={'/video-footer'}>Видео</Link></li>
                 </ul>
-                <a className="logo__footer" href="../index/index.html"></a>
+                <Link to={'/'} className="logo__footer" ></Link>
                 <ul className="menu-right menu-right__footer">
-                    <li><a href="../concerts/concerts.html">Концерты</a></li>
-                    <li><a href="../events/events.html">События</a></li>
-                    <li><a href="">Магазин</a></li>
-                    <li><a href="../fun-club/fun-club.html">Фан-клуб</a></li>
+                    <li><Link href="../concerts/concerts.html">Концерты</Link></li>
+                    <li><Link href="../events/events.html">События</Link></li>
+                    <li><Link href="">Магазин</Link></li>
+                    <li><Link href="../fun-club/fun-club.html">Фан-клуб</Link></li>
                 </ul>
             </div>
             <ul className="footer-text">
@@ -31,7 +31,6 @@ const Footer = () => {
         </div>
     </footer>
     )
-
 }
 
 export default Footer;
