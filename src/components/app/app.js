@@ -7,6 +7,9 @@ import Video from "../video/video";
 import History from "../history/history";
 import FullHistory from "../history/full-history";
 import Musicians from "../musicians/musicians";
+import Concerts from "../concerts/concerts";
+import Events from "../events/events";
+import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
 import { Route, Switch, useLocation} from 'react-router-dom';
 
@@ -15,7 +18,9 @@ const App = () => {
     const location = useLocation();
     useEffect(()=>{
         if(location.pathname === '/audio-footer' || location.pathname === '/history-footer'
-            || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'){
+            || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'
+        || location.pathname === '/shop-footer' || location.pathname === '/concerts-footer'
+        || location.pathname === '/events-footer' || location.pathname === '/fun-club-footer'){
             document.querySelector('.container').classList.add('grange-container');
             document.querySelector('footer').classList.add('grange-footer')
         } else {
@@ -36,12 +41,19 @@ const App = () => {
                 <Route path = '/musicians'  exact component={Musicians}/>
                 <Route path = '/audio' exact component={Audio}/>
                 <Route path = '/video' exact component={Video}/>
+                <Route path = '/concerts' exact component={Concerts}/>
+                <Route path = '/events' exact component={Events}/>
                 <Route path = '/shop' exact component={ShopPage}/>
+                <Route path = '/fun-club' exact component={FunClub}/>
                 <Route path = '/shop/cart' exact component={CartPage}/>
                 <Route path = '/history-footer' exact component={History}/>
                 <Route path = '/audio-footer' exact component={Audio}/>
                 <Route path = '/musicians-footer' exact component={Musicians}/>
                 <Route path = '/video-footer' exact component={Video}/>
+                <Route path = '/concerts-footer' exact component={Concerts}/>
+                <Route path = '/events-footer' exact component={Events}/>
+                <Route path = '/shop-footer' exact component={ShopPage}/>
+                <Route path = '/fun-club-footer' exact component={FunClub}/>
 
                 <Route path = '/shop/:id'  component={ItemPage}/>
             </Switch>

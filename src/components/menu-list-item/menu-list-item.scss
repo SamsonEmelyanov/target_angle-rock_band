@@ -71,5 +71,9 @@
         box-sizing: border-box;
         border-right: 9px solid #FF7000;
         background: url("Vector (2).svg") no-repeat right 25.8px top 17.81px;
+        &:active {
+            background: url("../history/Group 150.svg") no-repeat right 20.8px top 22.81px;
+        }
     }
+
 }

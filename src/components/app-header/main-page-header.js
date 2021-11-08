@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import cartIcon from './shopping-cart-solid.svg';
 import '../cart-table/cart-table.scss'
 import '../app-header/main-page-header.sass'
 import { Link , useLocation} from 'react-router-dom';
@@ -35,7 +34,7 @@ const MainPageHeader = ({totalPrice}) => {
 
         </div>
     </header>
-    <div className="logo"></div>
+    <Link to={'/'} className="logo"></Link>
     <nav>
         <ul className="menu-left">
             <li><Link to={'/history'}>История</Link></li>
@@ -44,10 +43,10 @@ const MainPageHeader = ({totalPrice}) => {
             <li><Link to={'/video'}>Видео</Link></li>
         </ul>
         <ul className="menu-right">
-            <li><Link href="../concerts/concerts.html">Концерты</Link></li>
-            <li><Link href="../events/events.html">События</Link></li>
+            <li><Link to={'/concerts'}>Концерты</Link></li>
+            <li><Link to={'/events'}>События</Link></li>
             <li><Link to='/shop' href="">Магазин</Link></li>
-            <li><Link href="../fun-club/fun-club.html">Фан-клуб</Link></li>
+            <li><Link to={'/fun-club'}>Фан-клуб</Link></li>
         </ul>
     </nav>
 </>
