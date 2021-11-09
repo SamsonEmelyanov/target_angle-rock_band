@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import '../cart-table/cart-table.scss'
 import '../app-header/main-page-header.sass'
-import { Link , useLocation} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import RegistAuthentificationHeader from "../common/RegistAuthentificationHeader";
 
 const MainPageHeader = ({totalPrice}) => {
 
@@ -15,16 +16,17 @@ const MainPageHeader = ({totalPrice}) => {
             }
         }
     )
-    const location = useLocation();
-    console.log(location);
     return (
 <>
     <header>
+        <div className="app-top-box">
+        <RegistAuthentificationHeader/>
+        </div>
         <div className="header__left">
-            <Link className="auth" href="">
+            <Link to={'/registration'} className="auth">
                 <span className="auth-text">Авторизация</span>
             </Link>
-            <Link className="registration" href="">Регистрация</Link>
+            <Link to={'/registration/signup'} className="registration" >Регистрация</Link>
         </div>
         <div className="header__right">
             <span className="telephone">+7(964)969-12-84(Viber)</span>

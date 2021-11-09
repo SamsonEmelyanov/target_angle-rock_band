@@ -31,8 +31,8 @@ const History = () => {
                         надежды на кастинге, который устроил тогдашний руководитель ВИА (о нем – ниже).<br/><br/>
                     </p>
                 </div>
-                <div class="media-content">
-                    <iframe class="wind-of-change" width="508" height="380" src="https://www.youtube.com/embed/9ZG6nrCq1G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div className="media-content">
+                    <iframe className="wind-of-change" width="508" height="380" src="https://www.youtube.com/embed/9ZG6nrCq1G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
         </div>
             <Link to={'/full-history'} class="button" >

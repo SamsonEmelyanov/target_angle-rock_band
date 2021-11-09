@@ -10,6 +10,7 @@ import ShopHeader from "./shop-header";
 import ConcertsHeader from "./concerts-header";
 import EventsHeader from "./events-header";
 import FunClubHeader from "./fun-club-header";
+import RegistAuthentificationHeader from "../common/RegistAuthentificationHeader";
 
 const AppHeader = ()=>{
 
@@ -26,6 +27,7 @@ const AppHeader = ()=>{
                     <Route path = '/shop' exact component={MainPageHeader}/>
                     <Route path = '/fun-club' exact component={MainPageHeader}/>
                     <Route path = '/shop/cart' exact component={MainPageHeader}/>
+                    <Route path = '/registration' component={MainPageHeader}/>
                     <Route path = '/audio' exact component={MainPageHeader}/>
                     <Route path = '/shop/:id' exact component={MainPageHeader}/>
                     <Route path = '/history-footer' exact component={HistoryHeader}/>

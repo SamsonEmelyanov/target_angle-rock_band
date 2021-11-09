@@ -65,6 +65,13 @@
   border-right: 9px solid #FF7000;
   background: url("Vector (2).svg") no-repeat right 25.8px top 17.81px; }
   .menu__btn:active {
-    background: url("../history/Group 150.svg") no-repeat right 20.8px top 22.81px; }
+    background: url("../history/Group 150.svg") no-repeat right 20.8px top 22.81px;
+    animation: anim 0.3s; }
+
+@keyframes anim {
+  50% {
+    transform: scale(0.98); }
+  100% {
+    transform: scale(1); } }
 
 /*# sourceMappingURL=menu-list-item.css.map */

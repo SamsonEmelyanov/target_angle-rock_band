@@ -7,8 +7,11 @@ import ErrorBoundry from './components/error-boundry';
 import RestoService from './services/resto-service';
 import RestoServiceContext from './components/resto-service-context';
 import store from './store';
-
 import './index.scss';
+
+import registerServiceWorker from './registerServiceWorker';
+
+
 
 
 const restoService = new RestoService();
@@ -26,3 +29,4 @@ ReactDOM.render(
     , document.getElementById('root')
 );
 
+registerServiceWorker();

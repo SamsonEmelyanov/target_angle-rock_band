@@ -11,6 +11,7 @@ import Concerts from "../concerts/concerts";
 import Events from "../events/events";
 import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
+import RegistAuthentification from "../RegistAuthentification/RegistAuthentification";
 import { Route, Switch, useLocation} from 'react-router-dom';
 
 
@@ -54,7 +55,7 @@ const App = () => {
                 <Route path = '/events-footer' exact component={Events}/>
                 <Route path = '/shop-footer' exact component={ShopPage}/>
                 <Route path = '/fun-club-footer' exact component={FunClub}/>
-
+                <Route path = '/registration' component={RegistAuthentification}/>
                 <Route path = '/shop/:id'  component={ItemPage}/>
             </Switch>
         </div>
