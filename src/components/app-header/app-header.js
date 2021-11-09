@@ -12,10 +12,13 @@ import EventsHeader from "./events-header";
 import FunClubHeader from "./fun-club-header";
 import RegistAuthentificationHeader from "../common/RegistAuthentificationHeader";
 
-const AppHeader = ()=>{
+const AppHeader = ({authenticated,handleLogout})=>{
 
     return (
         <>
+            <div className="app-top-box">
+                <RegistAuthentificationHeader authenticated={authenticated} onLogout={handleLogout} />
+            </div>
                 <Switch>
                     <Route path = '/' exact component={MainPageHeader}/>
                     <Route path = '/history' exact component={MainPageHeader}/>

@@ -13,9 +13,18 @@ import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
 import RegistAuthentification from "../RegistAuthentification/RegistAuthentification";
 import { Route, Switch, useLocation} from 'react-router-dom';
+import {useState} from 'react';
+import {ACCESS_TOKEN} from "../constants";
+import Alert from "react-s-alert";
+import {getCurrentUser} from "../util/APIUtils";
 
 
 const App = () => {
+
+    const [authenticated , setAuthenticated] = useState(false);
+    const [currentUser , setCurrentUser] = useState( null);
+    const [loading , setLoading] = useState( false);
+
     const location = useLocation();
     useEffect(()=>{
         if(location.pathname === '/audio-footer' || location.pathname === '/history-footer'
@@ -31,10 +40,30 @@ const App = () => {
 
     })
 
+    const handleLogout = () => {
+        localStorage.removeItem(ACCESS_TOKEN);
+        setAuthenticated(false);
+        setCurrentUser(null);
+        Alert.success("You're safely logged out!");
+    }
+
+    const loadCurrentlyLoggedInUser = () => {
+        setLoading(true);
+
+        getCurrentUser()
+            .then(response => {
+                setAuthenticated(true)
+                setCurrentUser(response)
+                setLoading(false)
+            }).catch(error => {
+            setLoading(false)
+        });
+    }
     return (
         <>
         <div className="container">
-            <AppHeader/>
+            <AppHeader loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser} authenticated = {authenticated}
+                       currentUser={currentUser} loading={loading} handleLogout={handleLogout}/>
             <Switch>
                 <Route path = '/'  exact component={MainPage}/>
                 <Route path = '/history'  exact component={History}/>
@@ -55,7 +84,8 @@ const App = () => {
                 <Route path = '/events-footer' exact component={Events}/>
                 <Route path = '/shop-footer' exact component={ShopPage}/>
                 <Route path = '/fun-club-footer' exact component={FunClub}/>
-                <Route path = '/registration' component={RegistAuthentification}/>
+                <Route path = '/registration' render={()=><RegistAuthentification authenticated = {authenticated}
+                    currentUser={currentUser} loading={loading} handleLogout={handleLogout} loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser}/>}/>
                 <Route path = '/shop/:id'  component={ItemPage}/>
             </Switch>
         </div>
