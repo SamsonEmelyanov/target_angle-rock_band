@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react';
+import React , {useEffect , useState} from 'react';
 import MainPage from "../main-page/main-page";
 import {ShopPage, CartPage, ItemPage} from '../pages';
 import Footer from "../footer/";
@@ -12,8 +12,7 @@ import Events from "../events/events";
 import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
 import RegistAuthentification from "../RegistAuthentification/RegistAuthentification";
-import { Route, Switch, useLocation} from 'react-router-dom';
-import {useState} from 'react';
+import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
 import {getCurrentUser} from "../util/APIUtils";
@@ -39,13 +38,16 @@ const App = () => {
         }
 
     })
-
+    const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem(ACCESS_TOKEN);
         setAuthenticated(false);
         setCurrentUser(null);
         Alert.success("You're safely logged out!");
-    }
+        history.push({
+            pathname: '/'
+        })
+    };
 
     const loadCurrentlyLoggedInUser = () => {
         setLoading(true);

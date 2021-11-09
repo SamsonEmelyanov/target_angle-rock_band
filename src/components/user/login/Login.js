@@ -95,7 +95,7 @@ class LoginForm extends Component {
         .then(response => {
             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
             Alert.success("You're successfully logged in!");
-            this.props.history.push("/registration/");
+            this.props.history.push("/registration/profile");
             window.location.reload();
         }).catch(error => {
             document.querySelectorAll('.form-control').forEach(item=>item.style.border = '1px solid red');
