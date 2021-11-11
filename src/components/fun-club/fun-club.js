@@ -1,9 +1,23 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import InputEmoji from "react-input-emoji";
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
 
-const FunClub = () => {
+const FunClub = ({currentUser, authenticated}) => {
+    const [message, setText] = useState("");
+    const [label, setLabel] = useState("");
+
+    function onSubmit(e) {
+        e.preventDefault();
+        onAdd(message);
+        setText('');
+    }
+
+    const onAdd = (message) => {
+        setLabel(message);
+    }
+
     useEffect(()=> {
 
         slider({
@@ -418,14 +432,27 @@ const FunClub = () => {
             </div>
             <div className="chat">
                 <span className="fun-club-headers chat-header">Чат</span>
-                <div className="chat-window"></div>
-                <form action="">
-                    <span className="enter-message">Введите Ваше сообщение</span>
-                    <textarea className="input-field" type="text"></textarea>
-                    <span className="guest-warning">Внимание, Ваше сообщение будет отправлено от имени гостя</span>
+                <div className="chat-window">{label}</div>
+                <form action="" onSubmit={onSubmit}>
+                    <div> {
+                        authenticated ? (
+                            <span></span>
+                        ) : (
+                            <span className="guest-warning">Внимание, Ваше сообщение будет отправлено от имени гостя</span>
+                        )
+                    }
+
+                    </div>
+                    <InputEmoji
+                        borderRadius={2}
+                        value={message}
+                        onChange={setText}
+                        cleanOnEnter
+                        onEnter={onAdd}
+                        placeholder="Введите Ваше сообщение"
+                    />
                     <div className="fun-club-button-container">
                         <button type="submit" className="button fun-club-button">ОТПРАВИТЬ</button>
-                        <img className="fun-club-img smiles" src={fun_club_photo2} alt=""/>
                     </div>
                 </form>
             </div>

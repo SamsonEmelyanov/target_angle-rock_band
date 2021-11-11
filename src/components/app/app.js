@@ -76,7 +76,7 @@ const App = () => {
                 <Route path = '/concerts' exact component={Concerts}/>
                 <Route path = '/events' exact component={Events}/>
                 <Route path = '/shop' exact component={ShopPage}/>
-                <Route path = '/fun-club' exact component={FunClub}/>
+                <Route path = '/fun-club' exact render={()=><FunClub authenticated = {authenticated} currentUser = {currentUser}/>}/>
                 <Route path = '/shop/cart' exact component={CartPage}/>
                 <Route path = '/history-footer' exact component={History}/>
                 <Route path = '/audio-footer' exact component={Audio}/>
