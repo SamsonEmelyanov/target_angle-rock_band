@@ -34,7 +34,7 @@ const deleteFromCart = (id) => {
 export {
     menuLoaded,
     menuRequested,
-    menuError, 
-    addedToCart, 
+    menuError,
+    addedToCart,
     deleteFromCart
 };

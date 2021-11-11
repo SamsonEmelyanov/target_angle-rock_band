@@ -99,6 +99,11 @@ const FunClub = () => {
 
             });
 
+            document.querySelector('.texts-invoke-btn').addEventListener('click',()=>{
+
+                document.querySelector('.fun-club-offer__slider').classList.toggle('texts-invoke')
+            });
+
             function deleteNotDigits(str) {
                 return +str.replace(/\D/g, '');
             }
@@ -400,6 +405,7 @@ const FunClub = () => {
                                 </p>
                             </div>
                         </div>
+                        <div className="texts-invoke-btn"><i>Тексты</i></div>
                     </div>
                     <div className="offer__slider-counter fun-club-offer__slider-counter">
                         <div className="offer__slider-prev"></div>
