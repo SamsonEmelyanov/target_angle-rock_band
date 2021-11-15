@@ -19,6 +19,9 @@ const FunClub = ({currentUser, authenticated}) => {
     }
 
     useEffect(()=> {
+        document.querySelector('.texts-invoke-btn').addEventListener('click',() => {
+            document.querySelector('.fun-club-offer__slider').classList.toggle('texts-invoke');
+        });
 
         slider({
             container: '.offer__slider',
@@ -113,11 +116,6 @@ const FunClub = ({currentUser, authenticated}) => {
 
             });
 
-            document.querySelector('.texts-invoke-btn').addEventListener('click',()=>{
-
-                document.querySelector('.fun-club-offer__slider').classList.toggle('texts-invoke')
-            });
-
             function deleteNotDigits(str) {
                 return +str.replace(/\D/g, '');
             }
@@ -134,8 +132,8 @@ const FunClub = ({currentUser, authenticated}) => {
                     <div className="offer__slider-wrapper">
                         <div className="offer__slider-inner">
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">ГЕТТО</h1><br/>
-                                <p class="texts-paragraf">Музыка: Емельянов С. <br/>
+                                <h1 className="texts-header">ГЕТТО</h1><br/>
+                                <p className="texts-paragraf">Музыка: Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Шаг, за шагом шаг, клич брошен!<br/>
@@ -168,8 +166,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">ЗАБВЕНИЕ</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Емельянов С. <br/>
+                                <h1 className="texts-header">ЗАБВЕНИЕ</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Емельянов С. <br/>
                                     Слова: Поляков В. <br/><br/>
 
                                     Еще один день, а после ночь... <br/>
@@ -205,8 +203,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">СУДЬБА</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Емельянов С. <br/>
+                                <h1 className="texts-header">СУДЬБА</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Ветер-бродяга уносит тебя<br/>
@@ -241,8 +239,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">ВПЕРЕД</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Якименко С., Емельянов С. <br/>
+                                <h1 className="texts-header">ВПЕРЕД</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Якименко С., Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Кто сказал, что кровь струится по венам!?<br/>
@@ -275,8 +273,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">ИГРА</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Емельянов С. <br/>
+                                <h1 className="texts-header">ИГРА</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Залп грозы над головой,<br/>
@@ -305,8 +303,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">РАКУРС ЦЕЛИ</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Емельянов С. <br/>
+                                <h1 className="texts-header">РАКУРС ЦЕЛИ</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Никто не помнит сколько лет<br/>
@@ -385,8 +383,8 @@ const FunClub = ({currentUser, authenticated}) => {
                                 </p>
                             </div>
                             <div className="offer__slide fun-club-offer__slide">
-                                <h1 class="texts-header">ЖИВИ, ПОКА ЖИВОЙ...</h1> <br/>
-                                <p class="texts-paragraf">Музыка: Дерябин И., Емельянов С. <br/>
+                                <h1 className="texts-header">ЖИВИ, ПОКА ЖИВОЙ...</h1> <br/>
+                                <p className="texts-paragraf">Музыка: Дерябин И., Емельянов С. <br/>
                                     Слова: Тестов Д. <br/><br/>
 
                                     Перерублен канат, флаг на мачте распят.<br/>

@@ -80,9 +80,16 @@
 @keyframes anim {
     50%{
         transform: scale(0.98);
+        border: #D73A08 1px solid;
+        border-right: 9px solid #D73A08;
+        background: url("../history/Group 150.svg") no-repeat right 15.8px top 22.81px;
+
     }
     100%{
         transform: scale(1);
+        border: #FF7000 1px solid;
+        border-right: 9px solid #D73A08;
+        background: url("../history/Group 150.svg") no-repeat right 20.8px top 22.81px;
     }
 }
 

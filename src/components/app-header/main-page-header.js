@@ -4,6 +4,7 @@ import '../app-header/main-page-header.sass'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import RegistAuthentificationHeader from "../common/RegistAuthentificationHeader";
+import star from './Prismatic-Star-12.png'
 
 const MainPageHeader = ({totalPrice}) => {
 
@@ -36,7 +37,7 @@ const MainPageHeader = ({totalPrice}) => {
 
         </div>
     </header>
-    <Link to={'/'} className="logo"></Link>
+    <Link to={'/'} className="logo">{/*<img  width={305} src={star}/>*/}</Link>
     <nav>
         <ul className="menu-left">
             <li><Link to={'/history'}>История</Link></li>
