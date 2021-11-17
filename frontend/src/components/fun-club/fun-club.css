@@ -1,0 +1,217 @@
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #C2C2C2;
+  box-shadow: inset 0 0 5px #AEAEAE; }
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8A8A8A; }
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #727272;
+  box-shadow: inset 0 0 5px #595959; }
+
+::-webkit-scrollbar-track:hover {
+  background-color: #E6E6E6;
+  border: 1px solid #CFCFCF; }
+
+::-webkit-scrollbar-corner {
+  background: transparent; }
+
+.fun-club-content {
+  margin-top: 50px;
+  display: flex;
+  justify-content: normal; }
+
+.fun-club-offer__slider-counter {
+  font-family: "Lato", sans-serif !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 12px !important;
+  line-height: 14px !important;
+  color: #F7F7F7 !important; }
+
+.fun-club-offer__slide {
+  height: 572px;
+  overflow: auto; }
+
+.fun-club-offer__slider {
+  width: 357px;
+  display: block;
+  border-right: 2px solid #757575;
+  padding-right: 59px;
+  transform: translateX(-515px);
+  transition: 0.5s all; }
+
+.fun-club-offer__slider-counter {
+  margin-top: 25px; }
+
+.texts-header {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 17px;
+  color: #FFFFFF; }
+
+.texts-paragraf {
+  text-indent: 0;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #F7F7F7; }
+
+.fun-club-headers {
+  text-align: center;
+  margin-bottom: 61px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 17px;
+  color: #FFFFFF; }
+
+.album {
+  text-align: center;
+  display: block;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 17px;
+  color: #FFFFFF;
+  margin-bottom: 28px; }
+
+.fun-club-img {
+  margin-left: 43px;
+  margin-bottom: 26px; }
+
+.chat-header {
+  text-align: center; }
+
+.chat-window {
+  margin-left: 70px;
+  height: 651px;
+  width: 851px;
+  display: block;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #BFBFBF;
+  margin-bottom: 15px;
+  overflow: auto;
+  word-wrap: break-word; }
+
+.enter-message {
+  display: block;
+  border: 1px solid #757575;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #BFBFBF;
+  width: 265px;
+  height: 44px;
+  text-align: center;
+  padding-top: 12px;
+  margin-left: 70px; }
+
+.input-field {
+  margin-left: 70px;
+  margin-top: 15px;
+  width: 458px;
+  height: 169px;
+  border: 1px solid #757575;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #BFBFBF; }
+
+.guest-warning {
+  margin-top: 15px;
+  padding-left: 15px;
+  display: block;
+  border: 1px solid #757575;
+  box-sizing: border-box;
+  text-align: initial;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 17px;
+  color: #BFBFBF;
+  width: 408px;
+  height: 44px;
+  margin-left: 70px;
+  padding-top: 12px; }
+
+.fun-club-button {
+  padding-top: 17px;
+  padding-left: 32px;
+  margin-left: 70px;
+  margin-top: 15px;
+  cursor: pointer; }
+
+.fun-club-button-container {
+  display: flex;
+  min-width: 400px; }
+
+.smiles {
+  margin-left: 33px;
+  margin-top: 43.13px; }
+
+.react-input-emoji--button--icon {
+  display: none; }
+
+.react-input-emoji--button {
+  background-image: url("Vector.svg") !important;
+  width: 30.86px !important;
+  height: 30.86px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
+
+.react-emoji {
+  margin-top: 15px;
+  margin-left: 60px;
+  width: 400px; }
+
+.texts-invoke {
+  transform: translateX(50px); }
+
+.texts-invoke-btn {
+  text-align: center;
+  padding-top: 5px;
+  align-items: center;
+  left: 335px;
+  bottom: 1005px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #e5e5e5;
+  width: 80px;
+  height: 30px;
+  border: #ff7000 1px solid;
+  transform: rotate(90deg);
+  position: absolute;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0; }
+
+/*# sourceMappingURL=fun-club.css.map */
