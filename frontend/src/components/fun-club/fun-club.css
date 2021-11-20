@@ -214,4 +214,7 @@
   cursor: pointer;
   border-radius: 5px 5px 0 0; }
 
+.app-list-item-label {
+  line-height: 150%; }
+
 /*# sourceMappingURL=fun-club.css.map */

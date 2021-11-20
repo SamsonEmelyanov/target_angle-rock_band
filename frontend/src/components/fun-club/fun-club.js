@@ -1,24 +1,111 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component, useState, useEffect, useRef} from 'react';
 import InputEmoji from "react-input-emoji";
+import * as SockJS from 'sockjs-client';
+import * as Stomp from 'stompjs';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
 
 const FunClub = ({currentUser, authenticated}) => {
-    const [message, setText] = useState("");
-    const [label, setLabel] = useState("");
+
+
+    const [data, setData] = useState([{label:'', id: 0}]);
+    const  [message, setText] = useState("");
+    let id = 0;
+
+    var socket = new SockJS('http://localhost:8080/ws');
+    var stompClient = Stomp.over(socket);
+
+
+    function onConnected() {
+        // Subscribe to the Public Topic
+        stompClient.subscribe('http://localhost:8080/topic/public', onMessageReceived);
+
+        // Tell your username to the server
+        stompClient.send("http://localhost:8080/app/chat.addUser",
+            {},
+            JSON.stringify({
+                sender: currentUser ? (currentUser.name) : 'Гость',
+                type: 'JOIN'
+            })
+        )
+    }
+    function onError(error) {
+        console.log('Error')
+    }
+
+    function sendMessage() {
+        if(data && stompClient) {
+            var chatMessage = {
+                sender: currentUser ? (currentUser.name) : 'Гость',
+                content: message,
+                type: 'CHAT'
+            };
+
+            stompClient.send("http://localhost:8080/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+
+        }
+    }
+
+    function onMessageReceived(payload) {
+        const messageContent = JSON.parse(payload.body);
+
+        const newItem = {
+            label: messageContent.content,
+            id: ++id
+        }
+        setData([...data, newItem]);
+    }
 
     function onSubmit(e) {
         e.preventDefault();
-        onAdd(message);
+        sendMessage(message)
         setText('');
     }
 
-    const onAdd = (message) => {
-        setLabel(message);
+
+    const PostList = () => {
+
+        useEffect(() => {
+            const massageArea =  document.querySelector('.chat-window');
+            massageArea.scrollTop = massageArea.scrollHeight;
+        }
+     )
+
+        const elements = data.map((item) => {
+            const {id, ...itemProps} = item;
+            return (
+                <li key={id} className='list-group-item'>
+                    <PostListItem
+                        {...itemProps}
+                    />
+                </li>
+            )
+        });
+
+        return (
+            <ul className="app-list list-group">
+                {elements}
+            </ul>
+        )
+    }
+
+    const PostListItem = ({label}) => {
+
+            return (
+                <div className="">
+                <span
+                    className="app-list-item-label">
+                    {label}
+                </span>
+                </div>
+            )
     }
 
     useEffect(()=> {
+
+        stompClient.connect({}, onConnected, onError);
+
         document.querySelector('.texts-invoke-btn').addEventListener('click',() => {
             document.querySelector('.fun-club-offer__slider').classList.toggle('texts-invoke');
         });
@@ -120,7 +207,7 @@ const FunClub = ({currentUser, authenticated}) => {
                 return +str.replace(/\D/g, '');
             }
         }
-    }
+    },[]
 )
 
     return(
@@ -430,7 +517,7 @@ const FunClub = ({currentUser, authenticated}) => {
             </div>
             <div className="chat">
                 <span className="fun-club-headers chat-header">Чат</span>
-                <div className="chat-window">{label}</div>
+                <div className="chat-window"><PostList/></div>
                 <form action="" onSubmit={onSubmit}>
                     <div> {
                         authenticated ? (
@@ -446,7 +533,7 @@ const FunClub = ({currentUser, authenticated}) => {
                         value={message}
                         onChange={setText}
                         cleanOnEnter
-                        onEnter={onAdd}
+                        onEnter={sendMessage}
                         placeholder="Введите Ваше сообщение"
                     />
                     <div className="fun-club-button-container">
