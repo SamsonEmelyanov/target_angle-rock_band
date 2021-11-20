@@ -2,6 +2,7 @@ import React, {Component, useState, useEffect, useRef} from 'react';
 import InputEmoji from "react-input-emoji";
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
+import SockJsClient from 'react-stomp';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
@@ -12,27 +13,9 @@ const FunClub = ({currentUser, authenticated}) => {
     const [data, setData] = useState([{label:'', id: 0}]);
     const  [message, setText] = useState("");
     let id = 0;
+    const socket = new SockJS('http://localhost:8080/ws');
+    const stompClient = Stomp.over(socket);
 
-    var socket = new SockJS('http://localhost:8080/ws');
-    var stompClient = Stomp.over(socket);
-
-
-    function onConnected() {
-        // Subscribe to the Public Topic
-        stompClient.subscribe('http://localhost:8080/topic/public', onMessageReceived);
-
-        // Tell your username to the server
-        stompClient.send("http://localhost:8080/app/chat.addUser",
-            {},
-            JSON.stringify({
-                sender: currentUser ? (currentUser.name) : 'Гость',
-                type: 'JOIN'
-            })
-        )
-    }
-    function onError(error) {
-        console.log('Error')
-    }
 
     function sendMessage() {
         if(data && stompClient) {
@@ -46,23 +29,11 @@ const FunClub = ({currentUser, authenticated}) => {
 
         }
     }
-
-    function onMessageReceived(payload) {
-        const messageContent = JSON.parse(payload.body);
-
-        const newItem = {
-            label: messageContent.content,
-            id: ++id
-        }
-        setData([...data, newItem]);
-    }
-
     function onSubmit(e) {
         e.preventDefault();
         sendMessage(message)
         setText('');
     }
-
 
     const PostList = () => {
 
@@ -103,8 +74,6 @@ const FunClub = ({currentUser, authenticated}) => {
     }
 
     useEffect(()=> {
-
-        stompClient.connect({}, onConnected, onError);
 
         document.querySelector('.texts-invoke-btn').addEventListener('click',() => {
             document.querySelector('.fun-club-offer__slider').classList.toggle('texts-invoke');
@@ -517,7 +486,27 @@ const FunClub = ({currentUser, authenticated}) => {
             </div>
             <div className="chat">
                 <span className="fun-club-headers chat-header">Чат</span>
-                <div className="chat-window"><PostList/></div>
+                <div className="chat-window">
+                    <PostList/>
+                    <SockJsClient
+                        url='http://localhost:8080/ws'
+                        topics={['http://localhost:8080/topic/public']}
+                        onConnect={() => {
+                            console.log("connected");
+                        }}
+                        onDisconnect={() => {
+                            console.log("Disconnected");
+                        }}
+                        onMessage={(msg) => {
+                            console.log(msg.content);
+                            const newItem = {
+                                label: msg.content,
+                                id: ++id
+                            }
+                            setData([...data, newItem]);
+                        }}
+                    />
+                </div>
                 <form action="" onSubmit={onSubmit}>
                     <div> {
                         authenticated ? (
