@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
+import java.util.Date;
+
 @Component
 public class WebSocketEventListener {
 
@@ -29,12 +31,16 @@ public class WebSocketEventListener {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
         String username = (String) headerAccessor.getSessionAttributes().get("username");
+        String userimage = (String) headerAccessor.getSessionAttributes().get("userimage");
+        Date date = (Date) headerAccessor.getSessionAttributes().get("date");
         if(username != null) {
             logger.info("User Disconnected : " + username);
 
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setType(ChatMessage.MessageType.LEAVE);
             chatMessage.setSender(username);
+            chatMessage.setSenderImg(userimage);
+            chatMessage.setDate(date);
 
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
         }

@@ -23,6 +23,9 @@ const App = () => {
     const [authenticated , setAuthenticated] = useState(false);
     const [currentUser , setCurrentUser] = useState( null);
     const [loading , setLoading] = useState( false);
+    const [counter, setCounter] = useState(0);
+    const [data, setData] = useState([{sender: null, senderImg: null, date: null, label: null, id: counter}]);
+    const  [message, setText] = useState("");
 
     const location = useLocation();
     useEffect(()=>{
@@ -76,7 +79,9 @@ const App = () => {
                 <Route path = '/concerts' exact component={Concerts}/>
                 <Route path = '/events' exact component={Events}/>
                 <Route path = '/shop' exact component={ShopPage}/>
-                <Route path = '/fun-club' exact render={()=><FunClub authenticated = {authenticated} currentUser = {currentUser}/>}/>
+                <Route path = '/fun-club' exact render={()=><FunClub message={message}
+                counter = {counter} data ={data} authenticated = {authenticated}
+                 setCounter = {setCounter} setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
                 <Route path = '/shop/cart' exact component={CartPage}/>
                 <Route path = '/history-footer' exact component={History}/>
                 <Route path = '/audio-footer' exact component={Audio}/>
@@ -85,7 +90,9 @@ const App = () => {
                 <Route path = '/concerts-footer' exact component={Concerts}/>
                 <Route path = '/events-footer' exact component={Events}/>
                 <Route path = '/shop-footer' exact component={ShopPage}/>
-                <Route path = '/fun-club-footer' exact render={()=><FunClub authenticated = {authenticated} currentUser = {currentUser}/>}/>
+                <Route path = '/fun-club-footer' exact render={()=><FunClub message={message}
+                counter = {counter} data ={data} authenticated = {authenticated}
+                setCounter = {setCounter} setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
                 <Route path = '/registration' render={()=><RegistAuthentification authenticated = {authenticated}
                     currentUser={currentUser} loading={loading} handleLogout={handleLogout} loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser}/>}/>
                 <Route path = '/shop/:id'  component={ItemPage}/>

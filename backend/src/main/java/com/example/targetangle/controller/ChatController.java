@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import javax.annotation.security.PermitAll;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -27,6 +26,8 @@ public class ChatController {
                                SimpMessageHeaderAccessor headerAccessor) {
         // Add username in web socket session
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
+        headerAccessor.getSessionAttributes().put("userimage", chatMessage.getSenderImg());
+        headerAccessor.getSessionAttributes().put("date", chatMessage.getDate());
         return chatMessage;
     }
 

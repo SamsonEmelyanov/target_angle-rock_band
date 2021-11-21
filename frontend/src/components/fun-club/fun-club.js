@@ -7,21 +7,19 @@ import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
 
-const FunClub = ({currentUser, authenticated}) => {
+const FunClub = ({currentUser, authenticated, data, message, counter, setData, setText, setCounter}) => {
 
-
-    const [data, setData] = useState([{label:'', id: 0}]);
-    const  [message, setText] = useState("");
-    let id = 0;
     const socket = new SockJS('http://localhost:8080/ws');
     const stompClient = Stomp.over(socket);
 
 
-    function sendMessage() {
-        if(data && stompClient) {
-            var chatMessage = {
+    function sendMessage(msg) {
+        if(message && stompClient) {
+            const chatMessage = {
                 sender: currentUser ? (currentUser.name) : 'Гость',
-                content: message,
+                senderImg: currentUser ? (currentUser.imageUrl) : 'https://storage.cloud.google.com/target-angle-rock-band.appspot.com/target-angle-stuff/cabinet.png',
+                content: msg,
+                date: new Date(),
                 type: 'CHAT'
             };
 
@@ -29,10 +27,10 @@ const FunClub = ({currentUser, authenticated}) => {
 
         }
     }
-    function onSubmit(e) {
-        e.preventDefault();
-        sendMessage(message)
-        setText('');
+   function onSubmit(e) {
+       e.preventDefault();
+       sendMessage(message);
+       setText('');
     }
 
     const PostList = () => {
@@ -48,6 +46,7 @@ const FunClub = ({currentUser, authenticated}) => {
             return (
                 <li key={id} className='list-group-item'>
                     <PostListItem
+                        currentUser={currentUser}
                         {...itemProps}
                     />
                 </li>
@@ -61,15 +60,36 @@ const FunClub = ({currentUser, authenticated}) => {
         )
     }
 
-    const PostListItem = ({label}) => {
-
-            return (
-                <div className="">
-                <span
-                    className="app-list-item-label">
-                    {label}
-                </span>
-                </div>
+    const PostListItem = ({label,sender,senderImg, date}) => {
+            if(label) {
+                return (
+                    <div className="chat-list-item">
+                        <div className="chat-avatar">
+                            {
+                                senderImg ? (
+                                    <>
+                                        <img width={96} height={96}
+                                             src={senderImg ? (senderImg) : "https://storage.cloud.google.com/target-angle-rock-band.appspot.com/target-angle-stuff/cabinet.png"}
+                                             alt={sender}/>
+                                        <div className="sender-name">{sender}</div>
+                                    </>
+                                ) : (
+                                    <div className="chat-avatar-text">
+                                        <span>{sender || "Гость"}</span>
+                                    </div>
+                                )
+                            }
+                        </div>
+                        <div
+                            className="app-list-item-label">
+                            {label}
+                        </div>
+                        <div className="app-list-item-label date">{date.substring(0,10)}//{+date.substring(11,13) + 3}{date.substring(13,16)}</div>
+                    </div>
+                )
+            }
+            else return (
+                <></>
             )
     }
 
@@ -489,22 +509,26 @@ const FunClub = ({currentUser, authenticated}) => {
                 <div className="chat-window">
                     <PostList/>
                     <SockJsClient
-                        url='http://localhost:8080/ws'
+                        url={'http://localhost:8080/ws'}
                         topics={['http://localhost:8080/topic/public']}
                         onConnect={() => {
-                            console.log("connected");
+                            console.log("Connected to chat");
                         }}
                         onDisconnect={() => {
-                            console.log("Disconnected");
+                            console.log("Disconnected from chat");
                         }}
                         onMessage={(msg) => {
-                            console.log(msg.content);
+                            if (msg){
+                                console.log(msg);
                             const newItem = {
+                                sender: msg.sender,
                                 label: msg.content,
-                                id: ++id
+                                senderImg: msg.senderImg,
+                                date: msg.date,
+                                id: setCounter(counter + 1)
                             }
                             setData([...data, newItem]);
-                        }}
+                        }else return}}
                     />
                 </div>
                 <form action="" onSubmit={onSubmit}>
