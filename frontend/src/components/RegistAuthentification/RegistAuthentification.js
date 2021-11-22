@@ -31,10 +31,9 @@ class RegistAuthentification extends Component {
       <div className="app">
         <div className="app-body">
           <Switch>
-            <Route exact path="/registration" component={Login}></Route>
             <PrivateRoute path="/registration/profile" authenticated={authenticated} currentUser={currentUser}
                           component={Profile}></PrivateRoute>
-            <Route path="/registration/login"
+            <Route exact path="/registration/login"
                    render={(props) => <Login authenticated={authenticated} {...props} />}></Route>
             <Route path="/registration/signup"
                    render={(props) => <Signup authenticated={authenticated} {...props} />}></Route>

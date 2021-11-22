@@ -29,7 +29,7 @@ class Login extends Component {
         if(this.props.authenticated) {
             return <Redirect
                 to={{
-                pathname: "/registration",
+                pathname: "/",
                 state: { from: this.props.location }
             }}/>;
         }
@@ -88,7 +88,6 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
         const loginRequest = Object.assign({}, this.state);
 
         login(loginRequest)

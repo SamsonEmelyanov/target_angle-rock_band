@@ -24,7 +24,7 @@ const MainPageHeader = ({totalPrice}) => {
         <RegistAuthentificationHeader/>
         </div>
         <div className="header__left">
-            <Link to={'/registration'} className="auth">
+            <Link to={'/registration/login'} className="auth">
                 <span className="auth-text">Авторизация</span>
             </Link>
             <Link to={'/registration/signup'} className="registration" >Регистрация</Link>
