@@ -12,7 +12,7 @@ class Signup extends Component {
         if(this.props.authenticated) {
             return <Redirect
                 to={{
-                pathname: "/registration",
+                pathname: "/registration/profile",
                 state: { from: this.props.location }
             }}/>;
         }
@@ -80,6 +80,8 @@ class SignupForm extends Component {
             Alert.success("You're successfully registered. Please login to continue!");
             this.props.history.push("/registration/login");
         }).catch(error => {
+            document.querySelectorAll('.form-control').forEach(item=>item.style.border = '1px solid red');
+            document.querySelector('.signup-content').innerHTML+="<div style='padding-top: 10px'><span style='color: red'>Error, the user with the specified data is already registered!</span></div>";
             Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
         });
     }
