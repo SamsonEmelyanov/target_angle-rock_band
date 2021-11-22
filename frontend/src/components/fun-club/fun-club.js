@@ -3,6 +3,7 @@ import InputEmoji from "react-input-emoji";
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
 import SockJsClient from 'react-stomp';
+import { DateTime } from 'luxon';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
@@ -12,6 +13,8 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
     const socket = new SockJS('http://localhost:8080/ws');
     const stompClient = Stomp.over(socket);
 
+    const dt = DateTime.local();
+    dt.setZone('Europe/Samara');
 
     function sendMessage(msg) {
         if(message && stompClient) {
@@ -19,7 +22,7 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                 sender: currentUser ? (currentUser.name) : 'Гость',
                 senderImg: currentUser ? (currentUser.imageUrl) : 'https://storage.cloud.google.com/target-angle-rock-band.appspot.com/target-angle-stuff/cabinet.png',
                 content: msg,
-                date: new Date(),
+                date: dt,
                 type: 'CHAT'
             };
 
@@ -69,7 +72,7 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                                 senderImg ? (
                                     <>
                                         <img width={96} height={96}
-                                             src={senderImg ? (senderImg) : "https://storage.cloud.google.com/target-angle-rock-band.appspot.com/target-angle-stuff/cabinet.png"}
+                                             src={senderImg}
                                              alt={sender}/>
                                         <div className="sender-name">{sender}</div>
                                     </>
@@ -84,7 +87,7 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                             className="app-list-item-label">
                             {label}
                         </div>
-                        <div className="app-list-item-label date">{date.substring(0,10)}//{+date.substring(11,13) + 3}{date.substring(13,16)}</div>
+                        <div className="app-list-item-label date">{date.substring(0,10)}//{date.substring(11,16)}</div>
                     </div>
                 )
             }
@@ -524,7 +527,7 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                                 sender: msg.sender,
                                 label: msg.content,
                                 senderImg: msg.senderImg,
-                                date: msg.date,
+                                date: DateTime.fromISO(msg.date).toString(),
                                 id: setCounter(counter + 1)
                             }
                             setData([...data, newItem]);

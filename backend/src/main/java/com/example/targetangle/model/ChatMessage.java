@@ -9,18 +9,18 @@ public class ChatMessage {
     private String senderImg;
     private Date date;
 
+    public enum MessageType {
+        CHAT,
+        JOIN,
+        LEAVE
+    }
+
     public void setDate(Date date) {
         this.date = date;
     }
 
     public Date getDate() {
         return date;
-    }
-
-    public enum MessageType {
-        CHAT,
-        JOIN,
-        LEAVE
     }
 
     public MessageType getType() {
@@ -53,5 +53,16 @@ public class ChatMessage {
 
     public void setSender(String sender) {
         this.sender = sender;
+    }
+
+    @Override
+    public String toString() {
+        return "ChatMessage{" +
+                "type=" + type +
+                ", content='" + content + '\'' +
+                ", sender='" + sender + '\'' +
+                ", senderImg='" + senderImg + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

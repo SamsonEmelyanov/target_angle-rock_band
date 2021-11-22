@@ -17,6 +17,7 @@ public class ChatController {
     @MessageMapping("/chat.sendMessage")
     @SendTo("http://localhost:8080/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+        //System.out.println(chatMessage);
         return chatMessage;
     }
 
@@ -30,5 +31,4 @@ public class ChatController {
         headerAccessor.getSessionAttributes().put("date", chatMessage.getDate());
         return chatMessage;
     }
-
 }
