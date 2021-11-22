@@ -168,7 +168,7 @@ const Musicians = () => {
         <div class="musicians-content">
             <div class="slide-description">
                 <div class="slide-description-text selected-description">
-                    <h1 class="slide-header">САМСОН 'SAM' ЕМЕЛЬЯНОВ <br/><br/></h1>
+                    <h1 class="slide-header">САМСОН ЕМЕЛЬЯНОВ <br/><br/></h1>
                     <h3 class="slide-title">Гитарист и композитор, бессменный <br/> участник группы </h3>
                     <p class="slide-paragraf">
                         <br/>

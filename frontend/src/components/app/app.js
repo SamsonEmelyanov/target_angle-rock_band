@@ -29,10 +29,15 @@ const App = () => {
 
     const location = useLocation();
     useEffect(()=>{
+        setAuthenticated(localStorage.getItem('authenticated')==='true');
+        setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
+    },[])
+
+    useEffect(() => {
         if(location.pathname === '/audio-footer' || location.pathname === '/history-footer'
             || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'
-        || location.pathname === '/shop-footer' || location.pathname === '/concerts-footer'
-        || location.pathname === '/events-footer' || location.pathname === '/fun-club-footer'){
+            || location.pathname === '/shop-footer' || location.pathname === '/concerts-footer'
+            || location.pathname === '/events-footer' || location.pathname === '/fun-club-footer'){
             document.querySelector('.container').classList.add('grange-container');
             document.querySelector('footer').classList.add('grange-footer')
         } else {
@@ -41,9 +46,12 @@ const App = () => {
         }
 
     })
+
     const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem(ACCESS_TOKEN);
+        localStorage.removeItem('authenticated');
+        localStorage.removeItem('currentUser');
         setAuthenticated(false);
         setCurrentUser(null);
         Alert.success("You're safely logged out!");
@@ -58,6 +66,8 @@ const App = () => {
         getCurrentUser()
             .then(response => {
                 setAuthenticated(true)
+                localStorage.setItem('authenticated','true')
+                localStorage.setItem('currentUser',JSON.stringify(response))
                 setCurrentUser(response)
                 setLoading(false)
             }).catch(error => {
