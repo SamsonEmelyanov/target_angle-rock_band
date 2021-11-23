@@ -114,14 +114,16 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                         onMessage={(msg) => {
                             if (msg){
                                 console.log(msg);
+                                setCounter(counter + 1);
                             const newItem = {
                                 sender: msg.sender,
                                 label: msg.content,
                                 senderImg: msg.senderImg,
                                 date: DateTime.fromISO(msg.date).toString(),
-                                id: setCounter(counter + 1)
+                                id: counter
                             }
                             setData([...data, newItem]);
+                            console.log(data);
                         }else return}}
                     />
                 </div>

@@ -23,8 +23,8 @@ const App = () => {
     const [authenticated , setAuthenticated] = useState(false);
     const [currentUser , setCurrentUser] = useState( null);
     const [loading , setLoading] = useState( false);
-    const [counter, setCounter] = useState(0);
-    const [data, setData] = useState([{sender: null, senderImg: null, date: null, label: null, id: counter}]);
+    const [counter, setCounter] = useState(2);
+    const [data, setData] = useState([{sender: null, senderImg: null, date: null, label: null, id: 1}]);
     const  [message, setText] = useState("");
 
     const location = useLocation();
