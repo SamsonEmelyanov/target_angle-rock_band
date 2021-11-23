@@ -27,7 +27,7 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
                 })
             }
             </div>
-            <button onClick = {() => {RestoService.setOrder( generateOrder(items))} } className = "order">Оформить заказ</button>
+            <button onClick = {() => {RestoService.setOrder( generateOrder(items))} } className = "order btn">Оформить заказ</button>
         </>
     );
 };

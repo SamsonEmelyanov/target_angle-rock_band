@@ -42,14 +42,24 @@
     border: 1px solid #fff;
     cursor: pointer; }
   .cart .order {
+    cursor: pointer;
     display: block;
     margin: 30px auto 0px auto;
-    width: 170px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: green;
-    border: none;
+    width: 230px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: brown;
+    border-color: silver;
     font-weight: bold;
     font-size: 14px; }
+    .cart .order:hover {
+      background-color: #40a9ff;
+      border-color: #40a9ff; }
+    .cart .order:focus {
+      background-color: #40a9ff;
+      border-color: #40a9ff; }
+    .cart .order:active {
+      background-color: #40a9ff;
+      border-color: #40a9ff; }
 
 /*# sourceMappingURL=cart-table.css.map */

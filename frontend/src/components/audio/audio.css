@@ -2,8 +2,8 @@
   display: block;
   margin: 80px auto;
   width: 1600px;
-  height: auto;
-  background: url("6487710a69fd22ca0a9f4a05503ac229 2.svg") no-repeat top 13px right 387px; }
+  min-height: 1040px;
+  background: url("6487710a69fd22ca0a9f4a05503ac229 2.svg") no-repeat top 13px right 237px; }
 
 .album-name {
   font-family: "Lato", sans-serif;
@@ -16,7 +16,7 @@
   margin-bottom: 33px; }
 
 .library {
-  margin-left: 297px;
+  margin-left: 447px;
   font-family: "Lato", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -46,7 +46,7 @@
   display: none; }
 
 .audio-control {
-  margin-left: 252px;
+  margin-left: 402px;
   width: 913px;
   font-family: "Lato", sans-serif;
   font-style: normal;

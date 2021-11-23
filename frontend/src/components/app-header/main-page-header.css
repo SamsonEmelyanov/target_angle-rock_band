@@ -9,13 +9,15 @@ html, body {
 body {
   background-color: black; }
 
+.main-background {
+  background-image: url("background2 1.svg");
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
 .container {
   margin: 0 auto;
   min-height: 1076px;
   position: relative;
-  background-image: url("background2 1.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
   width: 1599px;
   height: auto; }
 
@@ -149,12 +151,8 @@ nav {
     line-height: 24px;
     color: #FFFFFF; }
 
-.grange-container {
-  padding-left: 160px;
-  position: relative;
-  background: url("image 32.svg");
-  background-size: 100%;
-  width: auto;
-  min-height: 1000px; }
+.grange-background {
+  background-image: url("image 32.svg");
+  background-size: 100%; }
 
 /*# sourceMappingURL=main-page-header.css.map */

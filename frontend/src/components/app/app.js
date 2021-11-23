@@ -38,11 +38,14 @@ const App = () => {
             || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'
             || location.pathname === '/shop-footer' || location.pathname === '/concerts-footer'
             || location.pathname === '/events-footer' || location.pathname === '/fun-club-footer'){
-            document.querySelector('.container').classList.add('grange-container');
+            document.querySelector('.container').classList.remove("main-background");
+            document.querySelector('body').classList.add('grange-background');
             document.querySelector('footer').classList.add('grange-footer')
         } else {
-            document.querySelector('.container').classList.remove('grange-container');
             document.querySelector('footer').classList.remove('grange-footer');
+            document.querySelector('body').classList.remove('grange-background');
+            document.querySelector('.container').classList.add("main-background");
+
         }
 
     })
@@ -76,7 +79,7 @@ const App = () => {
     }
     return (
         <>
-        <div className="container">
+        <div className="container main-background">
             <AppHeader loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser} authenticated = {authenticated}
                        currentUser={currentUser} loading={loading} handleLogout={handleLogout}/>
             <Switch>
