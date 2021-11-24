@@ -8,7 +8,7 @@ import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
 
-const FunClub = ({currentUser, authenticated, data, message, counter, setData, setText, setCounter}) => {
+const FunClub = ({currentUser, authenticated, data, message, setData, setText}) => {
 
     const socket = new SockJS('http://localhost:8080/ws');
     const stompClient = Stomp.over(socket);
@@ -63,8 +63,8 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
         )
     }
 
-    const PostListItem = ({label,sender,senderImg, date}) => {
-            if(label) {
+    const PostListItem = ({content,sender,senderImg, date}) => {
+            if(content) {
                 return (
                     <div className="chat-list-item">
                         <div className="chat-avatar">
@@ -85,7 +85,7 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                         </div>
                         <div
                             className="app-list-item-label">
-                            {label}
+                            {content}
                         </div>
                         <div className="app-list-item-label date">{date.substring(0,10)}//{date.substring(11,16)}</div>
                     </div>
@@ -114,13 +114,13 @@ const FunClub = ({currentUser, authenticated, data, message, counter, setData, s
                         onMessage={(msg) => {
                             if (msg){
                                 console.log(msg);
-                                setCounter(counter + 1);
                             const newItem = {
                                 sender: msg.sender,
-                                label: msg.content,
+                                content: msg.content,
                                 senderImg: msg.senderImg,
-                                date: DateTime.fromISO(msg.date).toString(),
-                                id: counter
+                                date: msg.date/*DateTime.fromISO(msg.date).toString()*/,
+                                id: msg.id,
+                                type: msg.type
                             }
                             setData([...data, newItem]);
                             console.log(data);

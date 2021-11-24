@@ -17,9 +17,9 @@ public class TargetAngleApplication {
 		SpringApplication.run(TargetAngleApplication.class, args);
 	}
 
-/*	@PostConstruct
+	@PostConstruct
 	public void init(){
 		// Setting Spring Boot SetTimeZone
-		TimeZone.setDefault(TimeZone.getTimeZone("GMT+3"));
-	}*/
+		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
+	}
 }

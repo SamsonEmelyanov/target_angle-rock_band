@@ -1,12 +1,33 @@
 package com.example.targetangle.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "chat_message")
 public class ChatMessage {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
     private MessageType type;
+
+    @Column
     private String content;
+
+    @Column
     private String sender;
+
+    @Column
     private String senderImg;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
+    @CreationTimestamp
     private Date date;
 
     public enum MessageType {
@@ -14,7 +35,13 @@ public class ChatMessage {
         JOIN,
         LEAVE
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Long getId() {
+        return id;
+    }
     public void setDate(Date date) {
         this.date = date;
     }

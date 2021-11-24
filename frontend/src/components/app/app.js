@@ -15,7 +15,7 @@ import RegistAuthentification from "../RegistAuthentification/RegistAuthentifica
 import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
-import {getCurrentUser} from "../util/APIUtils";
+import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 
 
 const App = () => {
@@ -23,12 +23,12 @@ const App = () => {
     const [authenticated , setAuthenticated] = useState(false);
     const [currentUser , setCurrentUser] = useState( null);
     const [loading , setLoading] = useState( false);
-    const [counter, setCounter] = useState(2);
-    const [data, setData] = useState([{sender: null, senderImg: null, date: null, label: null, id: 1}]);
+    const [data, setData] = useState([{sender: null, senderImg: null, date: null, content: null, id: 1, type: null}]);
     const  [message, setText] = useState("");
 
     const location = useLocation();
     useEffect(()=>{
+        loadCurrentlyPostedMessages();
         setAuthenticated(localStorage.getItem('authenticated')==='true');
         setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
     },[])
@@ -63,6 +63,14 @@ const App = () => {
         })
     };
 
+    const loadCurrentlyPostedMessages = () =>  {
+        getAllChatMessages().then(response => {
+            setData(response);
+        }).catch(error => {
+            console.log('Error in loading posted messages')
+        });
+    }
+
     const loadCurrentlyLoggedInUser = () => {
         setLoading(true);
 
@@ -72,6 +80,7 @@ const App = () => {
                 localStorage.setItem('authenticated','true')
                 localStorage.setItem('currentUser',JSON.stringify(response))
                 setCurrentUser(response)
+                console.log(currentUser)
                 setLoading(false)
             }).catch(error => {
             setLoading(false)
@@ -92,9 +101,9 @@ const App = () => {
                 <Route path = '/concerts' exact component={Concerts}/>
                 <Route path = '/events' exact component={Events}/>
                 <Route path = '/shop' exact component={ShopPage}/>
-                <Route path = '/fun-club' exact render={()=><FunClub message={message}
-                counter = {counter} data ={data} authenticated = {authenticated}
-                 setCounter = {setCounter} setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
+                <Route path = '/fun-club' exact render={()=><FunClub  message={message}
+                 data ={data} authenticated = {authenticated}
+                 setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
                 <Route path = '/shop/cart' exact component={CartPage}/>
                 <Route path = '/history-footer' exact component={History}/>
                 <Route path = '/audio-footer' exact component={Audio}/>
@@ -104,8 +113,8 @@ const App = () => {
                 <Route path = '/events-footer' exact component={Events}/>
                 <Route path = '/shop-footer' exact component={ShopPage}/>
                 <Route path = '/fun-club-footer' exact render={()=><FunClub message={message}
-                counter = {counter} data ={data} authenticated = {authenticated}
-                setCounter = {setCounter} setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
+                data ={data} authenticated = {authenticated}
+                setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
                 <Route path = '/registration' render={()=><RegistAuthentification authenticated = {authenticated}
                     currentUser={currentUser} loading={loading} handleLogout={handleLogout} loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser}/>}/>
                 <Route path = '/shop/:id'  component={ItemPage}/>
