@@ -26,13 +26,13 @@ const App = () => {
     const [data, setData] = useState([{sender: null, senderImg: null, date: null, content: null, id: 1, type: null}]);
     const  [message, setText] = useState("");
 
-    const location = useLocation();
     useEffect(()=>{
         loadCurrentlyPostedMessages();
         setAuthenticated(localStorage.getItem('authenticated')==='true');
         setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
     },[])
 
+    const location = useLocation();
     useEffect(() => {
         if(location.pathname === '/audio-footer' || location.pathname === '/history-footer'
             || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'

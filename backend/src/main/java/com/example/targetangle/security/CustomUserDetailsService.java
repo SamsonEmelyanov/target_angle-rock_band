@@ -4,6 +4,7 @@ package com.example.targetangle.security;
 import com.example.targetangle.exception.ResourceNotFoundException;
 import com.example.targetangle.model.User;
 import com.example.targetangle.repository.UserRepository;
+import com.example.targetangle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +19,14 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    UserService userService;
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email)
+        User user = userService.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User not found with email : " + email)
         );

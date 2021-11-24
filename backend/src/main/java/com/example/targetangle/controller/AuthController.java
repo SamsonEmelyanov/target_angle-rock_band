@@ -9,6 +9,7 @@ import com.example.targetangle.payload.LoginRequest;
 import com.example.targetangle.payload.SignUpRequest;
 import com.example.targetangle.repository.UserRepository;
 import com.example.targetangle.security.TokenProvider;
+import com.example.targetangle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,6 +32,9 @@ public class AuthController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -56,7 +60,7 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-        if(userRepository.existsByEmail(signUpRequest.getEmail())) {
+        if(userService.isUserExist(signUpRequest.getEmail())) {
             throw new BadRequestException("Email address already in use.");
         }
 
