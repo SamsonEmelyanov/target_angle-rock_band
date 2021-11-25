@@ -14,8 +14,6 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
     const stompClient = Stomp.over(socket);
 
     const dt = DateTime.local();
-    dt.setZone('Europe/Samara');
-
     function sendMessage(msg) {
         if(message && stompClient) {
             const chatMessage = {
@@ -118,12 +116,11 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
                                 sender: msg.sender,
                                 content: msg.content,
                                 senderImg: msg.senderImg,
-                                date: msg.date/*DateTime.fromISO(msg.date).toString()*/,
+                                date: DateTime.fromISO(msg.date).toString(),
                                 id: msg.id,
                                 type: msg.type
                             }
                             setData([...data, newItem]);
-                            console.log(data);
                         }else return}}
                     />
                 </div>

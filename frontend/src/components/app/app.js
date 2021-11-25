@@ -16,6 +16,7 @@ import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
+import { DateTime } from 'luxon';
 
 
 const App = () => {
@@ -65,7 +66,9 @@ const App = () => {
 
     const loadCurrentlyPostedMessages = () =>  {
         getAllChatMessages().then(response => {
-            setData(response);
+            setData(response.map((elem)=>{
+                return {...elem, date: DateTime.fromISO(elem.date).toString()};
+            }));
         }).catch(error => {
             console.log('Error in loading posted messages')
         });
