@@ -1,7 +1,7 @@
 package com.example.targetangle.security;
 
 
-import com.example.targetangle.exception.ResourceNotFoundException;
+import com.example.targetangle.security.exception.ResourceNotFoundException;
 import com.example.targetangle.model.User;
 import com.example.targetangle.repository.UserRepository;
 import com.example.targetangle.service.UserService;

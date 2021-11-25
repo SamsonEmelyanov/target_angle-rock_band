@@ -1,6 +1,6 @@
 package com.example.targetangle.security.oauth2.user;
 
-import com.example.targetangle.exception.OAuth2AuthenticationProcessingException;
+import com.example.targetangle.security.exception.OAuth2AuthenticationProcessingException;
 import com.example.targetangle.model.AuthProvider;
 
 import java.util.Map;

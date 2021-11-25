@@ -1,4 +1,4 @@
-package com.example.targetangle.util;
+package com.example.targetangle.security.util;
 
 import org.springframework.util.SerializationUtils;
 import javax.servlet.http.Cookie;

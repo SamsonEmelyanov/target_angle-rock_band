@@ -1,12 +1,12 @@
 package com.example.targetangle.controller;
 
-import com.example.targetangle.exception.BadRequestException;
+import com.example.targetangle.security.exception.BadRequestException;
 import com.example.targetangle.model.AuthProvider;
 import com.example.targetangle.model.User;
-import com.example.targetangle.payload.ApiResponse;
-import com.example.targetangle.payload.AuthResponse;
-import com.example.targetangle.payload.LoginRequest;
-import com.example.targetangle.payload.SignUpRequest;
+import com.example.targetangle.security.payload.ApiResponse;
+import com.example.targetangle.security.payload.AuthResponse;
+import com.example.targetangle.security.payload.LoginRequest;
+import com.example.targetangle.security.payload.SignUpRequest;
 import com.example.targetangle.repository.UserRepository;
 import com.example.targetangle.security.TokenProvider;
 import com.example.targetangle.service.UserService;

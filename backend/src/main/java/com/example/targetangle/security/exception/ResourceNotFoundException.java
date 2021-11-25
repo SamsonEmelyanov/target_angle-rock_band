@@ -1,4 +1,4 @@
-package com.example.targetangle.exception;
+package com.example.targetangle.security.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

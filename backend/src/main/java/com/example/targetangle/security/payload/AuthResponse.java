@@ -1,4 +1,4 @@
-package com.example.targetangle.payload;
+package com.example.targetangle.security.payload;
 
 public class AuthResponse {
     private String accessToken;

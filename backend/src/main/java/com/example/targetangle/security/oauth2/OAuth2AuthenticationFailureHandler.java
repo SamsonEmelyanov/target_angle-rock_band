@@ -1,6 +1,6 @@
 package com.example.targetangle.security.oauth2;
 
-import com.example.targetangle.util.CookieUtils;
+import com.example.targetangle.security.util.CookieUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;

@@ -1,6 +1,6 @@
 package com.example.targetangle.security.oauth2;
 
-import com.example.targetangle.exception.OAuth2AuthenticationProcessingException;
+import com.example.targetangle.security.exception.OAuth2AuthenticationProcessingException;
 import com.example.targetangle.model.AuthProvider;
 import com.example.targetangle.model.User;
 import com.example.targetangle.repository.UserRepository;

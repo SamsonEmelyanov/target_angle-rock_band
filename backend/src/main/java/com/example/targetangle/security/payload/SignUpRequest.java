@@ -1,4 +1,4 @@
-package com.example.targetangle.payload;
+package com.example.targetangle.security.payload;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
