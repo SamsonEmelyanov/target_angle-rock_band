@@ -15,6 +15,7 @@ import RegistAuthentification from "../RegistAuthentification/RegistAuthentifica
 import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
+import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 import { DateTime } from 'luxon';
 
@@ -122,6 +123,22 @@ const App = () => {
                 <Route path = '/shop/:id'  component={ItemPage}/>
             </Switch>
         </div>
+            <SockJsClient
+                url={'http://localhost:8080/ws'}
+                topics={['http://localhost:8080/topic/public']}
+                onConnect={() => {
+                    console.log("Connected to chat");
+                }}
+                onDisconnect={() => {
+                    console.log("Disconnected from chat");
+                }}
+                onMessage={(msg) => {
+                    if (msg){
+                        console.log(msg);
+                        const newItem = {...msg, date: DateTime.fromISO(msg.date).toString()}
+                        setData([...data, newItem]);
+                    }else return}}
+            />
             <Footer/>
         </>
     )

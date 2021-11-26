@@ -9,6 +9,19 @@ html, body {
 body {
   background-color: black; }
 
+@-moz-document url-prefix()  /* Disable scrollbar Firefox */ {
+  html {
+    scrollbar-width: none; } }
+body {
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-y: scroll; }
+
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; }
+
 .main-background {
   background-image: url("background2 1.svg");
   background-size: 100%;

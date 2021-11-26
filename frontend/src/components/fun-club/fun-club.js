@@ -2,7 +2,6 @@ import React, {Component, useState, useEffect, useRef} from 'react';
 import InputEmoji from "react-input-emoji";
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
-import SockJsClient from 'react-stomp';
 import { DateTime } from 'luxon';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
@@ -100,22 +99,6 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
                 <span className="fun-club-headers chat-header">Чат</span>
                 <div className="chat-window">
                     <PostList/>
-                    <SockJsClient
-                        url={'http://localhost:8080/ws'}
-                        topics={['http://localhost:8080/topic/public']}
-                        onConnect={() => {
-                            console.log("Connected to chat");
-                        }}
-                        onDisconnect={() => {
-                            console.log("Disconnected from chat");
-                        }}
-                        onMessage={(msg) => {
-                            if (msg){
-                                console.log(msg);
-                            const newItem = {...msg, date: DateTime.fromISO(msg.date).toString()}
-                            setData([...data, newItem]);
-                        }else return}}
-                    />
                 </div>
                 <form action="" onSubmit={onSubmit}>
                     <div> {
@@ -125,7 +108,6 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
                             <span className="guest-warning">Внимание, Ваше сообщение будет отправлено от имени гостя</span>
                         )
                     }
-
                     </div>
                     <InputEmoji
                         borderRadius={2}
