@@ -83,7 +83,6 @@ const App = () => {
                 localStorage.setItem('authenticated','true')
                 localStorage.setItem('currentUser',JSON.stringify(response))
                 setCurrentUser(response)
-                console.log(currentUser)
                 setLoading(false)
             }).catch(error => {
             setLoading(false)

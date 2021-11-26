@@ -112,14 +112,7 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
                         onMessage={(msg) => {
                             if (msg){
                                 console.log(msg);
-                            const newItem = {
-                                sender: msg.sender,
-                                content: msg.content,
-                                senderImg: msg.senderImg,
-                                date: DateTime.fromISO(msg.date).toString(),
-                                id: msg.id,
-                                type: msg.type
-                            }
+                            const newItem = {...msg, date: DateTime.fromISO(msg.date).toString()}
                             setData([...data, newItem]);
                         }else return}}
                     />
