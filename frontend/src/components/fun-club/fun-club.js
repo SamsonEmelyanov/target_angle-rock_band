@@ -3,6 +3,7 @@ import InputEmoji from "react-input-emoji";
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
 import { DateTime } from 'luxon';
+import guestPhoto from './target-angle-stuff_cabinet.png';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
@@ -17,7 +18,7 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
         if(message && stompClient) {
             const chatMessage = {
                 sender: currentUser ? (currentUser.name) : 'Гость',
-                senderImg: currentUser ? (currentUser.imageUrl) : 'https://storage.cloud.google.com/target-angle-rock-band.appspot.com/target-angle-stuff/cabinet.png',
+                senderImg: currentUser ? (currentUser.imageUrl) : guestPhoto,
                 content: msg,
                 date: dt,
                 type: 'CHAT'
