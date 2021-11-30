@@ -18,6 +18,7 @@ import Alert from "react-s-alert";
 import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 import { DateTime } from 'luxon';
+import './app.scss';
 
 
 const App = () => {
