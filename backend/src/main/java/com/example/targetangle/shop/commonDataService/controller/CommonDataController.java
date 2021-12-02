@@ -41,9 +41,9 @@ public class CommonDataController {
     public ResponseEntity getAllProducts() {
         List<ProductInfo> products = commonDataService.getAllProduct();
 
-    /*    if (products.isEmpty()) {
+        if (products.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }*/
+        }
 
         return new ResponseEntity(products, HttpStatus.OK);
     }
