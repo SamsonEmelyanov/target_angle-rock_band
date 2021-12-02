@@ -10,7 +10,7 @@ import fun_club_photo1 from "../fun-club/6487710a69fd22ca0a9f4a05503ac229 2.png"
 
 const Audio = () => {
 
-    const songs = useSelector(state=>state.songs);
+    const songs = useSelector(state=>state.mainReducer.songs);
     useEffect(()=> {
             document.querySelector('.library-song').classList.add('selected')
             const audio = document.querySelector("audio");

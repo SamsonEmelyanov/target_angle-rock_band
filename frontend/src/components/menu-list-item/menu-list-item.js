@@ -9,14 +9,14 @@ import './menu-list-item.scss';
 // }
 
 const MenuListItem = ( {menuItem, onAddToCart}) => {
-    const {title, price, url} = menuItem;
+    const {name, price, imageURL} = menuItem;
 
     return (
         <>
             <li className="menu__item">
                 <Link style={{textDecoration:'none'}} to = {`/shop/${menuItem.id}`}>
-                    <img className="menu__img" src={url} alt={title}></img>
-                    <div className="menu__title">{title}</div>
+                    <img className="menu__img" src={imageURL} alt={name}></img>
+                    <div className="menu__title">{name}</div>
                 </Link>
                     <div className="menu__price-wrapper">
                     <div className="menu__price"><span>{price}р.</span></div>

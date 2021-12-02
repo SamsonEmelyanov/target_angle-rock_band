@@ -1,6 +1,25 @@
-import { createStore } from 'redux';
-import reducer from './reducers';
+import {applyMiddleware, compose, createStore} from 'redux';
+import log from 'loglevel';
+import reducers from './reducers';
+import thunk from "redux-thunk";
 
-const store = createStore(reducer);
+let composeEnhancers
+
+// enable logs & redux only in production.
+if (process.env.REACT_APP_ENVIRONMENT === "dev") {
+
+    // by default set the level to info
+    log.setLevel("info")
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose();
+} else {
+    console.log = console.error = console.warn = function () {}
+    log.disableAll(true)
+    composeEnhancers = compose();
+}
+
+const store = createStore(
+    reducers,
+    composeEnhancers(applyMiddleware(thunk))
+);
 
 export default store;

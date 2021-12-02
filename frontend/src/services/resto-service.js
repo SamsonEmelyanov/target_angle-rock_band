@@ -1,5 +1,9 @@
 export default class RestoService{
-    _apiBase = 'http://localhost:3000';
+    _apiBase = 'http://localhost:8080';
+
+    async getMenuItems(){
+        return await this.getResource('/menu/');
+    }
 
     async getResource(url) {
         const res = await fetch(`${this._apiBase}${url}`);
@@ -8,10 +12,6 @@ export default class RestoService{
                 `, received ${res.status}`);
         }
         return await res.json();
-    }
-
-    async getMenuItems () {
-        return await this.getResource('/menu/');
     }
 
     async getItem(id) {

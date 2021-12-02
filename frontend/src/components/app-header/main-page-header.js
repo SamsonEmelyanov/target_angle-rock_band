@@ -57,9 +57,9 @@ const MainPageHeader = ({totalPrice}) => {
 };
 
 
-const mapStateToProps = ({totalPrice}) => {
+const mapStateToProps = (state) => {
     return{
-        totalPrice
+        totalPrice: state.mainReducer.totalPrice
     }
 }
 

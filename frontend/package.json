@@ -13,6 +13,7 @@
     "react-s-alert": "^1.4.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.4.1",
     "stompjs": "^2.3.3"
   },
   "scripts": {
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.24.0",
     "sockjs-client": "^1.5.2"
   }
 }

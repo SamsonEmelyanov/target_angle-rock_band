@@ -38,15 +38,15 @@ class ItemPage extends Component {
             )
         }
         const item = menuItems.find(el => +el.id === +this.props.match.params.id);
-        const{title, url, price, id} = item;
+        const{name, imageURL, price, id} = item;
         //console.log(this.props.menuItems)
 
 
         return (
             <div className = "item_page">
                 <div className="menu__item item_block">
-                     <div className="menu__title">{title}</div>
-                    <img className="menu__img" src={url} alt={title}></img>
+                     <div className="menu__title">{name}</div>
+                    <img className="menu__img" src={imageURL} alt={name}></img>
                     <div className="menu__price-wrapper">
                     <div className="menu__price"><span>{price}р.</span></div>
                     <button onClick = {()=>this.props.addedToCart(id)} className="menu__btn">КУПИТЬ</button>
@@ -62,9 +62,9 @@ class ItemPage extends Component {
 
 const mapStateToProps =  (state) =>{
     return {
-        menuItems: state.menu,
-        loading: state.loading,
-        error: state.error
+        menuItems: state.mainReducer.menu,
+        loading: state.mainReducer.loading,
+        error: state.mainReducer.error
     }
 }
 

@@ -15,7 +15,10 @@ class MenuList extends Component {
 
         const {RestoService} = this.props;
         RestoService.getMenuItems()
-            .then(res => this.props.menuLoaded(res))
+            .then(res => {
+                console.log(res);
+                this.props.menuLoaded(res);
+            })
             .catch(() => this.props.menuError());
     }
 
@@ -43,9 +46,9 @@ class MenuList extends Component {
 
 const mapStateToProps =  (state) =>{
     return {
-        menuItems: state.menu,
-        loading: state.loading,
-        error: state.error
+        menuItems: state.mainReducer.menu,
+        loading: state.mainReducer.loading,
+        error: state.mainReducer.error
     }
 }
 

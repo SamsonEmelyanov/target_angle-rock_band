@@ -15,11 +15,11 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
             <div className="cart__list">
             {
                 items.map( item => {
-                    const {price, title, url, id, qtty} = item;
+                    const {price, name, imageURL, id, qtty} = item;
                     return (
                         <div key = {id} className="cart__item">
-                            <img src={url} className="cart__item-img" alt={title}></img>
-                            <div className="cart__item-title">{title}</div>
+                            <img src={imageURL} className="cart__item-img" alt={name}></img>
+                            <div className="cart__item-title">{name}</div>
                             <div className="cart__item-price">{price}р. x {qtty}</div>
                             <div onClick = {() => deleteFromCart(id)}className="cart__close">&times;</div>
                         </div>
@@ -42,9 +42,9 @@ const generateOrder = (items) => {
     return newOrder;
 }
 
-const mapStateToProps = ({items}) => {
+const mapStateToProps = (state) => {
     return{
-        items
+        items: state.mainReducer.items
     }
 };
 
