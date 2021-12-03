@@ -4,6 +4,7 @@ import {deleteFromCart} from '../../actions';
 import WithRestoService from '../hoc';
 
 import './cart-table.scss';
+import {Link} from "react-router-dom";
 
 const CartTable = ({items, deleteFromCart, RestoService}) => {
     if( items.length === 0){
@@ -27,7 +28,8 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
                 })
             }
             </div>
-            <button onClick = {() => {RestoService.setOrder( generateOrder(items))} } className = "order btn">Оформить заказ</button>
+            <Link to={'/checkout'}  className = "order btn">Оформить заказ</Link>
+           {/* <button onClick = {() => {RestoService.setOrder( generateOrder(items))} } className = "order btn">Оформить заказ</button>*/}
         </>
     );
 };

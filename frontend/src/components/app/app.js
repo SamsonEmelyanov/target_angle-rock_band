@@ -12,6 +12,9 @@ import Events from "../events/events";
 import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
 import RegistAuthentification from "../RegistAuthentification/RegistAuthentification";
+import {SuccessPayment} from "../../successPayment";
+import {CancelPayment} from "../../cancelPayment";
+import Checkout from "../../checkout/checkout";
 import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
@@ -19,6 +22,7 @@ import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 import { DateTime } from 'luxon';
 import './app.scss';
+
 
 
 const App = () => {
@@ -121,6 +125,9 @@ const App = () => {
                 setData = {setData} setText = {setText}  currentUser = {currentUser}/>}/>
                 <Route path = '/registration' render={()=><RegistAuthentification authenticated = {authenticated}
                     currentUser={currentUser} loading={loading} handleLogout={handleLogout} loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser}/>}/>
+                <Route path="/checkout" exact component={Checkout}/>
+                <Route path="/checkout/success-payment/:id" exact component={SuccessPayment}/>
+                <Route path="/checkout/cancel-payment/:id" exact component={CancelPayment}/>
                 <Route path = '/shop/:id'  component={ItemPage}/>
             </Switch>
         </div>

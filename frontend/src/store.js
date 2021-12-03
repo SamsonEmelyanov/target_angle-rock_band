@@ -1,7 +1,7 @@
 import {applyMiddleware, compose, createStore} from 'redux';
-import log from 'loglevel';
 import reducers from './reducers';
 import thunk from "redux-thunk";
+import log from 'loglevel';
 
 let composeEnhancers
 
@@ -16,6 +16,7 @@ if (process.env.REACT_APP_ENVIRONMENT === "dev") {
     log.disableAll(true)
     composeEnhancers = compose();
 }
+
 
 const store = createStore(
     reducers,

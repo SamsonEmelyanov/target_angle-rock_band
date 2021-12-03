@@ -42,6 +42,7 @@
     border: 1px solid #fff;
     cursor: pointer; }
   .cart .order {
+    color: black;
     cursor: pointer;
     display: block;
     margin: 30px auto 0px auto;

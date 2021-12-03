@@ -32,6 +32,7 @@ const AppHeader = ({authenticated,handleLogout})=>{
                     <Route path = '/shop/cart' exact component={MainPageHeader}/>
                     <Route path = '/registration' component={MainPageHeader}/>
                     <Route path = '/audio' exact component={MainPageHeader}/>
+                    <Route path = '/checkout' component={MainPageHeader}/>
                     <Route path = '/shop/:id' exact component={MainPageHeader}/>
                     <Route path = '/history-footer' exact component={HistoryHeader}/>
                     <Route path = '/musicians-footer' exact component={MusiciansHeader}/>
