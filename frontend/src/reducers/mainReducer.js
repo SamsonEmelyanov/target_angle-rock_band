@@ -105,6 +105,10 @@ const mainReducer = (state = initialState, action) => {
                     ...itemInState,
                     qtty: ++itemInState.qtty
                 }
+                localStorage.setItem('items',JSON.stringify([...state.items.slice(0, itemInd),
+                    newItem,
+                    ...state.items.slice(itemInd + 1)]));
+                localStorage.setItem('totalPrice',(state.totalPrice + newItem.price).toString());
                 return {
                     ...state,
                     items: [
@@ -125,7 +129,8 @@ const mainReducer = (state = initialState, action) => {
                 id: item.id,
                 qtty: 1
             };
-
+            localStorage.setItem('items',JSON.stringify([...state.items, newItem]));
+            localStorage.setItem('totalPrice',(state.totalPrice + newItem.price).toString())
             return {
                 ...state,
                 items: [
@@ -139,6 +144,12 @@ const mainReducer = (state = initialState, action) => {
             const idx = action.payload;
             const itemIndex = state.items.findIndex(item => item.id === idx)
             const price = state.items[itemIndex]['price'] * state.items[itemIndex]['qtty'];
+
+            localStorage.setItem('items',JSON.stringify([
+                ...state.items.slice(0, itemIndex),
+                ...state.items.slice(itemIndex + 1)]
+            ));
+            localStorage.setItem('totalPrice',(state.totalPrice - price).toString())
             return {
                 ...state,
                 items: [
@@ -148,7 +159,8 @@ const mainReducer = (state = initialState, action) => {
                 totalPrice: state.totalPrice - price
             }
         default:
-            return state;
+            return {...state,items: JSON.parse(localStorage.getItem('items'))||state.items,
+                totalPrice: +localStorage.getItem('totalPrice')};
     }
 }
 

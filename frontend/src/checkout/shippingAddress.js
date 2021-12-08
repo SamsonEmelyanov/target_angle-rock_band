@@ -129,14 +129,13 @@ class ShippingAddressForm extends Component {
                                 <Grid item container xs={6}>
                                     <Field
                                         name="stateCode"
-                                        label="State"
+                                        label="Region"
                                         component={renderReduxTextField}
                                         props={{selectField: true}}
                                     >
                                         {renderStateCodes()}
                                     </Field>
                                 </Grid>
-
                             </Grid>
 
                             {renderFormTextField("City", "city")}
