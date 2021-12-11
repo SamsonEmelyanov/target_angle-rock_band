@@ -2,7 +2,7 @@ spring:
     datasource:
         url: jdbc:mysql://localhost:3306/target_angle?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
         username: root
-        password:
+        password: drvFI29@885
 
     jpa:
         show-sql: true
@@ -17,15 +17,15 @@ spring:
         client:
           registration:
             google:
-              clientId: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
-              clientSecret: tWZKVLxaD_ARWsriiiUFYoIk
+              clientId: 5020714111-6kql02l287ea6k9h84eainiep0b7ieel.apps.googleusercontent.com
+              clientSecret: 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
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - email
                 - profile
             facebook:
-              clientId: 121189305185277
-              clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+              clientId: 2844097722479256
+              clientSecret: c35b9c054a18198788994c8c975e702c
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - email
@@ -39,15 +39,15 @@ spring:
                 - read:user
           provider:
             facebook:
-              authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
-              tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
-              userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+              authorizationUri: https://www.facebook.com/v12.0/dialog/oauth
+              tokenUri: https://graph.facebook.com/v12.0/oauth/access_token
+              userInfoUri: https://graph.facebook.com/v12.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
   auth:
     tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:3001/registration/oauth2/redirect
+      - http://localhost:3000/registration/oauth2/redirect
       - myandroidapp://oauth2/redirect
       - myiosapp://oauth2/redirect

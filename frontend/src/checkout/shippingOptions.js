@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 
 const deliveryPrices = {
     "free": 0,
-    "premium": 10,
-    "express": 15
+    "premium": 500,
+    "express": 1000
 }
 
 const shippingOptionsData = {
@@ -41,13 +41,13 @@ const shippingOptionsData = {
         estimatedDays: [3, 6]
     },
     "premium": {
-        price: `$${deliveryPrices.premium}.00`,
+        price: `RUB${deliveryPrices.premium}.00`,
         label: "Premium",
         transitLabel: "Transit time: 2-3 business days",
         estimatedDays: [2, 3]
     },
     "express": {
-        price: `$${deliveryPrices.express}.00`,
+        price: `RUB${deliveryPrices.express}.00`,
         label: "Express",
         transitLabel: "Transit time: 1-2 business days",
         estimatedDays: [1, 2]
@@ -56,7 +56,7 @@ const shippingOptionsData = {
 
 export function ShippingOptions() {
     const classes = useStyles();
-    const shoppingBagProducts = useSelector(state => state.shoppingBagProductReducer)
+    const shoppingBagProducts = useSelector(state => state.mainReducer)
     const dispatch = useDispatch()
     const [shippingOptionState, setShippingOptionState] = React.useState( {value: 'free', submitted: false})
 
@@ -166,13 +166,13 @@ export function ShippingOptions() {
     }
 
     const renderImages = () => {
-        if (!shoppingBagProducts.hasOwnProperty("data") || Object.keys(shoppingBagProducts.data).length === 0) {
+        if (!shoppingBagProducts.hasOwnProperty("items") || Object.keys(shoppingBagProducts.items).length === 0) {
             return <CircularProgress color="secondary"/>
         }
 
         let imageList = []
 
-        for (const [id, product] of Object.entries(shoppingBagProducts.data)) {
+        for (const [id, product] of Object.entries(shoppingBagProducts.items)) {
             imageList.push(
                 <Grid key={id} item sm={2} style={{alignSelf: "center", paddingBottom: "1rem"}}>
                     <img key={product.id} src={product.imageURL}

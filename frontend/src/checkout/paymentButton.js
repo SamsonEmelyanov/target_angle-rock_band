@@ -22,7 +22,7 @@ class PaymentButton extends Component {
         this.props.sendPaymentToken({
             ...token,
             amount: this._GrandTotal,
-            currency: "USD",
+            currency: "RUB",
             address: this.props.shippingAddressForm.values,
             addToCart: this.props.addToCart,
             shippingOption: this.props.shippingOption
@@ -63,10 +63,10 @@ class PaymentButton extends Component {
                     this.renderButton():
                     <StripeCheckout
                         token={this.onToken}
-                        stripeKey={process.env.REACT_APP_STRIPE_PUBLISH_KEY}
+                        stripeKey={'pk_test_51K5H8GIn60CVzGvBf6QJsVc2cee3OIjd8EyIODi6IZFMOlhgR0d1xipf4Dg55eemqolBIKDapf5dnPRvS6RAQlAp00i1p4Bg1S'}
                         name="Target-Angle Rock-Band"
                         amount={this.getGrandTotal()} // cents
-                        currency="USD">
+                        currency="RUB">
                         {this.renderButton()}
                     </StripeCheckout>}
             </>
@@ -76,7 +76,7 @@ class PaymentButton extends Component {
 
 const mapStateToProps = (state) => {
     return ({
-        cartTotal: state.cartTotalReducer,
+        cartTotal: state.mainReducer.totalPrice,
         shippingAddressForm: state.form.shippingAddressForm ?
             state.form.shippingAddressForm : null,
         shippingOption: state.shippingOptionReducer,

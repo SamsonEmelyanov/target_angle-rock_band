@@ -15,17 +15,16 @@ const resetStates = [RESET_ADD_TO_CART, RESET_CART_TOTAL, RESET_DELIVERY_CHARGES
 
 export const SuccessPayment = () => {
     const dispatch = useDispatch()
-    const shoppingBagProducts = useSelector(state => state.shoppingBagProductReducer)
-    let cartTotal = useSelector(state => state.cartTotalReducer)
+    const shoppingBagProducts = useSelector(state => state.mainReducer.items)
+    let cartTotal = useSelector(state => state.mainReducer.totalPrice)
     const shippingAddressForm = useSelector(state => state.form.shippingAddressForm ?
         state.form.shippingAddressForm.values : null)
     const shippingOption = useSelector(state => state.shippingOptionReducer)
-    const addToCart = useSelector(state => state.addToCartReducer)
+    const addToCart = useSelector(state => state.mainReducer.items)
     const deliveryCharges = useSelector(state => state.deliveryChargesReducer)
     const paymentResponse = useSelector(state => state.paymentResponseReducer)
 
     useEffect(() => {
-
         return () => {
             log.info("[SuccessPayment] Component will unmount.")
 
@@ -47,13 +46,13 @@ export const SuccessPayment = () => {
         return <GenericErrorMsg/>
     }
 
-    if (!shippingAddressForm) {
+/*    if (!shippingAddressForm) {
         return <BadRequest/>
     }
 
     if (!paymentResponse.hasOwnProperty("order_id")) {
         return null
-    }
+    }*/
 
     const renderShippingAddress = () => {
         const shippingAddressAttributes = [
@@ -76,13 +75,13 @@ export const SuccessPayment = () => {
     const renderShoppingProducts = () => {
         let products = []
 
-        if (!shoppingBagProducts.data) {
+        if (!shoppingBagProducts) {
             log.info(`[SuccessPayment] shoppingBagProducts.data is null`)
             return null
         }
 
-        for (const [id, qty] of Object.entries(addToCart.productQty)) {
-            let product = shoppingBagProducts.data[id]
+        for (const [id, qty] of Object.entries(addToCart.qtty)) {
+            let product = shoppingBagProducts[id]
 
             products.push(<Grid key={id} container spacing={2} style={{paddingTop: "2rem"}}>
                 <Grid item>
@@ -113,11 +112,13 @@ export const SuccessPayment = () => {
             padding: "2rem", margin: "2rem", border: "1px solid black",
             fontSize: "1.2rem"
         }}>
+        <>
             <DocumentTitle title="Payment Success"/>
             <Grid item xs={12}
                   style={{border: "1px solid green", padding: "2rem", fontSize: "2rem", fontWeight: "bold"}}>
-                Payment Successful. Thank You For Shopping at Shoppers.
+                Payment Successful. Thank You For Shopping.
             </Grid>
+            </>
             <Grid item xs={12} style={{marginTop: "2rem", fontWeight: "bold"}}>
                 {`Your order is placed successfully. Your order id is ${paymentResponse.order_id}.`}
             </Grid>

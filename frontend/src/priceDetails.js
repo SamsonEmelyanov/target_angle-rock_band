@@ -16,7 +16,7 @@ const paymentStyles = {
 }
 
 function PriceDetails() {
-    let cartTotal = useSelector(state => state.cartTotalReducer);
+    let cartTotal = useSelector(state => state.mainReducer);
     const deliveryCharges = useSelector(state => state.deliveryChargesReducer)
 
     const renderGridData = (label, value, styles) => {
@@ -45,14 +45,14 @@ function PriceDetails() {
                 Price Details
             </Grid>
 
-            {renderGridData("Bag Total", `$${cartTotal}`, {...paymentStyles, paddingTop: 10})}
-            {renderGridData("Shipping", `$${deliveryCharges}`, {...paymentStyles, paddingTop: 10})}
+            {renderGridData("Bag Total", `RUB${cartTotal.totalPrice}`, {...paymentStyles, paddingTop: 10})}
+            {renderGridData("Shipping", `RUB${deliveryCharges}`, {...paymentStyles, paddingTop: 10})}
 
             <Grid item container sm={10} style={{paddingTop: 17}}>
                 <Divider style={{width: "100%", height: 1}}/>
             </Grid>
 
-            {renderGridData("Order Total", `$${cartTotal + deliveryCharges}`,
+            {renderGridData("Order Total", `RUB${cartTotal.totalPrice + deliveryCharges}`,
                 {...paymentStyles.header})}
 
         </Grid>

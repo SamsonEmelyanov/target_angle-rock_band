@@ -29,7 +29,7 @@ public class PaymentController {
     @PostMapping("/payment")
     public ResponseEntity<PaymentStatus> chargeCustomer(@RequestBody CardToken cardToken) {
 
-        Stripe.apiKey = env.getProperty("STRIPE_SECRET_KEY");
+        Stripe.apiKey = "sk_test_51K5H8GIn60CVzGvBSq0ZFqOrqVSzn6LhGEqVtDRb4nwtJXjSk3XYxanbScPvQvqDG3IBLjYxoShfakKGt8IotOec00VTtoqqAK";
         Stripe.setMaxNetworkRetries(2);
 
         Charge charge;
@@ -40,7 +40,7 @@ public class PaymentController {
                     ChargeCreateParams.builder()
                             .setAmount(cardToken.getAmount())
                             .setCurrency(cardToken.getCurrency())
-                            .setDescription("Shopper Buy")
+                            .setDescription("Target-Angle Rock-Band")
                             .setSource(cardToken.getId())
                             .build();
 
