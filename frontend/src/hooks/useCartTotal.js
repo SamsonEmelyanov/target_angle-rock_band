@@ -12,7 +12,7 @@ export function useCartTotal() {
     useEffect(() => {
         log.info("[useCartTotal] Component will mount...")
 
-        let cartTotal = localStorage.getItem('totalPrice')
+        let cartTotal = Cookies.get(CART_TOTAL_COOKIE)
         if (cartTotal) {
             cartTotal = JSON.parse(cartTotal)
             dispatch({
