@@ -15,12 +15,13 @@ import RegistAuthentification from "../RegistAuthentification/RegistAuthentifica
 import {SuccessPayment} from "../../successPayment";
 import {CancelPayment} from "../../cancelPayment";
 import Checkout from "../../checkout/checkout";
-import { Route, Switch, useLocation, useHistory} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
 import Alert from "react-s-alert";
 import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 import { DateTime } from 'luxon';
+import history from "../../history";
 import './app.scss';
 
 
@@ -39,25 +40,6 @@ const App = () => {
         setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
     },[])
 
-    const location = useLocation();
-    useEffect(() => {
-        if(location.pathname === '/audio-footer' || location.pathname === '/history-footer'
-            || location.pathname === '/musicians-footer' || location.pathname === '/video-footer'
-            || location.pathname === '/shop-footer' || location.pathname === '/concerts-footer'
-            || location.pathname === '/events-footer' || location.pathname === '/fun-club-footer'){
-            document.querySelector('.container').classList.remove("main-background");
-            document.querySelector('body').classList.add('grange-background');
-            document.querySelector('footer').classList.add('grange-footer')
-        } else {
-            document.querySelector('footer').classList.remove('grange-footer');
-            document.querySelector('body').classList.remove('grange-background');
-            document.querySelector('.container').classList.add("main-background");
-
-        }
-
-    })
-
-    const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem(ACCESS_TOKEN);
         localStorage.removeItem('authenticated');
@@ -95,7 +77,7 @@ const App = () => {
         });
     }
     return (
-        <>
+        <Router history={history}>
         <div className="container main-background">
             <AppHeader loadCurrentlyLoggedInUser={loadCurrentlyLoggedInUser} authenticated = {authenticated}
                        currentUser={currentUser} loading={loading} handleLogout={handleLogout}/>
@@ -148,7 +130,7 @@ const App = () => {
                     }else return}}
             />
             <Footer/>
-        </>
+        </Router>
     )
 }
 export default App;

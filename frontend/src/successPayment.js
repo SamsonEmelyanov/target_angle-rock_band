@@ -16,7 +16,7 @@ const resetStates = [RESET_ADD_TO_CART, RESET_CART_TOTAL, RESET_DELIVERY_CHARGES
 export const SuccessPayment = () => {
     const dispatch = useDispatch()
     const shoppingBagProducts = useSelector(state => state.mainReducer.items)
-    let cartTotal = useSelector(state => state.mainReducer.totalPrice)
+    let cartTotal = useSelector(state => state.cartTotalReducer)
     const shippingAddressForm = useSelector(state => state.form.shippingAddressForm ?
         state.form.shippingAddressForm.values : null)
     const shippingOption = useSelector(state => state.shippingOptionReducer)
@@ -25,15 +25,16 @@ export const SuccessPayment = () => {
     const paymentResponse = useSelector(state => state.paymentResponseReducer)
 
     useEffect(() => {
-        return () => {
-            log.info("[SuccessPayment] Component will unmount.")
 
+        return () => {
+            localStorage.setItem('items','[]');
+            localStorage.setItem('totalPrice','0');
+            log.info("[SuccessPayment] Component will unmount.")
             resetStates.forEach(resetState => {
                 dispatch({
                     type: resetState
                 })
             })
-
         }
 
         // eslint-disable-next-line
@@ -46,13 +47,13 @@ export const SuccessPayment = () => {
         return <GenericErrorMsg/>
     }
 
-/*    if (!shippingAddressForm) {
+    if (!shippingAddressForm) {
         return <BadRequest/>
     }
 
     if (!paymentResponse.hasOwnProperty("order_id")) {
         return null
-    }*/
+    }
 
     const renderShippingAddress = () => {
         const shippingAddressAttributes = [
@@ -80,10 +81,10 @@ export const SuccessPayment = () => {
             return null
         }
 
-        for (const [id, qty] of Object.entries(addToCart.qtty)) {
+        for (const [id, qty] of Object.entries(addToCart)) {
             let product = shoppingBagProducts[id]
 
-            products.push(<Grid key={id} container spacing={2} style={{paddingTop: "2rem"}}>
+            products.push(<Grid key={id} container spacing={2} style={{paddingTop: "2rem", color: "silver", marginLeft: "300px"}}>
                 <Grid item>
                     <img src={product.imageURL}
                          alt={product.name} style={{height: 100, width: 80}}/>
@@ -94,10 +95,7 @@ export const SuccessPayment = () => {
                         {product.name}
                     </Grid>
                     <Grid item>
-                        {product.productBrandCategory.type}
-                    </Grid>
-                    <Grid item>
-                        {`Qty: ${qty} X ${product.price} = ${product.price * qty}`}
+                        {`Количество: ${product.qtty} X ${product.price}р. = ${product.price * product.qtty}р.`}
                     </Grid>
                 </Grid>
             </Grid>)
@@ -110,12 +108,12 @@ export const SuccessPayment = () => {
     return (
         <Grid item xs={8} container spacing={2} style={{
             padding: "2rem", margin: "2rem", border: "1px solid black",
-            fontSize: "1.2rem"
+            fontSize: "1.2rem", color: "silver", marginLeft: "300px"
         }}>
         <>
             <DocumentTitle title="Payment Success"/>
             <Grid item xs={12}
-                  style={{border: "1px solid green", padding: "2rem", fontSize: "2rem", fontWeight: "bold"}}>
+                  style={{border: "1px solid #ff7000", padding: "2rem", fontSize: "2rem", fontWeight: "bold"}}>
                 Payment Successful. Thank You For Shopping.
             </Grid>
             </>
@@ -149,9 +147,6 @@ export const SuccessPayment = () => {
                 </Grid>
                 <Grid item container xs={8} direction="column" style={{fontWeight: "bold"}}>
                     <Grid item>
-                        {`${paymentResponse.brand.toUpperCase()} ending in ${paymentResponse.last4}`}
-                    </Grid>
-                    <Grid item>
                         {`Exp: ${paymentResponse.exp_month}/${paymentResponse.exp_year}`}
                     </Grid>
                 </Grid>
@@ -162,7 +157,7 @@ export const SuccessPayment = () => {
                     Paid Amount:
                 </Grid>
                 <Grid item style={{fontWeight: "bold"}}>
-                    ${cartTotal + deliveryCharges}
+                    RUB{cartTotal + deliveryCharges}
                 </Grid>
             </Grid>
 

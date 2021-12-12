@@ -111,7 +111,7 @@ function Checkout(props) {
     }, [])
 
     useCartTotal()
-    useAddProductsToShoppingBag(props.getDataViaAPI)
+    useAddProductsToShoppingBag()
 
     const renderTitle = title => {
         return (

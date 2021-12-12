@@ -80,7 +80,7 @@ const mapStateToProps = (state) => {
         shippingAddressForm: state.form.shippingAddressForm ?
             state.form.shippingAddressForm : null,
         shippingOption: state.shippingOptionReducer,
-        addToCart: state.addToCartReducer,
+        addToCart: state.addToCart,
         deliveryCharges: state.deliveryChargesReducer,
         paymentResponse: state.paymentResponseReducer
     })
