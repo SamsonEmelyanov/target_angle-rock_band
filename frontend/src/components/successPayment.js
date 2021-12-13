@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import log from 'loglevel'
 import {Grid} from "@material-ui/core";
+import {stateCodes} from './constants/stateCodes'
 import {useDispatch, useSelector} from "react-redux";
 import {BadRequest} from "../ui/error/badRequest";
 import {
@@ -60,7 +61,7 @@ export const SuccessPayment = () => {
             `${shippingAddressForm.firstName} ${shippingAddressForm.lastName}`,
             shippingAddressForm.addressLine1, shippingAddressForm.addressLine2,
             `${shippingAddressForm.city},
-            ${shippingAddressForm.stateCode} - ${shippingAddressForm.zipCode}`,
+            ${stateCodes()[shippingAddressForm.stateCode]} - ${shippingAddressForm.zipCode}`,
             `Mobile - ${shippingAddressForm.phoneNumber}`,
             `Email - ${shippingAddressForm.email}`
         ]

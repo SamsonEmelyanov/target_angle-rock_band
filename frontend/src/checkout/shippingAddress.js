@@ -74,7 +74,7 @@ class ShippingAddressForm extends Component {
         const renderStateCodes = () => {
             let stateCodeList = []
 
-            for (const [code,] of Object.entries(stateCodes)) {
+            for (const [code,] of Object.entries(stateCodes())) {
                 stateCodeList.push(
                     <MenuItem key={code} value={code}>
                         {code}
