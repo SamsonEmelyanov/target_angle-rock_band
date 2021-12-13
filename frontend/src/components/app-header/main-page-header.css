@@ -12,7 +12,7 @@ body {
 @-moz-document url-prefix()  /* Disable scrollbar Firefox */ {
   html {
     scrollbar-width: none; } }
-body {
+body, .chat-window, .fun-club-offer__slide {
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
