@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import log from 'loglevel';
 import {Paper, Grid, Hidden} from "@material-ui/core";
-import PriceDetails from "../priceDetails";
+import PriceDetails from "../components/priceDetails";
 import ShippingAddress from "./shippingAddress";
 import {ShippingOptions} from "./shippingOptions";
 import {makeStyles, withStyles} from '@material-ui/core/styles';

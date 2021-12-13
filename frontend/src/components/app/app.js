@@ -12,8 +12,8 @@ import Events from "../events/events";
 import FunClub from "../fun-club/fun-club";
 import AppHeader from '../app-header/app-header';
 import RegistAuthentification from "../RegistAuthentification/RegistAuthentification";
-import {SuccessPayment} from "../../successPayment";
-import {CancelPayment} from "../../cancelPayment";
+import {SuccessPayment} from "../successPayment";
+import {CancelPayment} from "../cancelPayment";
 import Checkout from "../../checkout/checkout";
 import {Router, Route, Switch} from 'react-router-dom';
 import {ACCESS_TOKEN} from "../constants";
@@ -21,7 +21,7 @@ import Alert from "react-s-alert";
 import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
 import { DateTime } from 'luxon';
-import history from "../../history";
+import history from "../history";
 import './app.scss';
 
 

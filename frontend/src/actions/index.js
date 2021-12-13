@@ -6,7 +6,7 @@ import {
 } from './types';
 import {INTERNAL_SERVER_ERROR_CODE, BAD_REQUEST_ERROR_CODE} from '../components/constants/http_error_codes'
 import {SHOPPERS_PRODUCT_INFO_COOKIE, CART_TOTAL_COOKIE} from '../components/constants/cookies'
-import history  from "../history";
+import history  from "../components/history";
 import Cookies from 'js-cookie';
 import log from "loglevel";
 import {commonServiceAPI} from "../api/service_api";

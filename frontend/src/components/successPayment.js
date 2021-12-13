@@ -2,13 +2,13 @@ import React, {useEffect} from 'react'
 import log from 'loglevel'
 import {Grid} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import {BadRequest} from "./ui/error/badRequest";
+import {BadRequest} from "../ui/error/badRequest";
 import {
     RESET_ADD_TO_CART, RESET_CART_TOTAL, RESET_DELIVERY_CHARGES,
     RESET_PAYMENT_RESPONSE, RESET_SHIPPING_ADDRESS, RESET_SHIPPING_OPTION, RESET_SHOPPING_BAG_PRODUCTS,
-} from "./actions/types";
-import {DocumentTitle} from "./ui/documentTitle";
-import {GenericErrorMsg} from "./ui/error/GenericErrorMsg";
+} from "../actions/types";
+import {DocumentTitle} from "../ui/documentTitle";
+import {GenericErrorMsg} from "../ui/error/GenericErrorMsg";
 
 const resetStates = [RESET_ADD_TO_CART, RESET_CART_TOTAL, RESET_DELIVERY_CHARGES,
     RESET_PAYMENT_RESPONSE, RESET_SHIPPING_ADDRESS, RESET_SHIPPING_OPTION, RESET_SHOPPING_BAG_PRODUCTS]
