@@ -17,6 +17,7 @@ import {useCartTotal} from "../hooks/useCartTotal";
 import {DocumentTitle} from "../ui/documentTitle";
 import {RESET_PAYMENT_RESPONSE_ERROR} from "../actions/types";
 import BackgroundDisabledSpinner from "../ui/BackgroundDisabledSpinner";
+import Spinner from "../components/spinner";
 // import {Elements, ElementsConsumer} from "@stripe/react-stripe-js";
 // import Payment from "./payment"
 
@@ -129,7 +130,7 @@ function Checkout(props) {
 
     return (
         <Grid container justify={"center"} classes={{root: classes.root}} style={{marginTop: '20px'}}>
-            {isLoading ? <BackgroundDisabledSpinner/> : null}
+            {isLoading ? <Spinner/> : null}
 
             <Grid item xs={12} sm={11} md={5}>
 
