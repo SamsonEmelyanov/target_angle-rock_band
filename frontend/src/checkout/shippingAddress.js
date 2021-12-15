@@ -196,7 +196,7 @@ const validate = (formValues) => {
     }
 
     if (formValues.zipCode &&
-        !/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(formValues.zipCode)) {
+        !/(^\d{6}$)/.test(formValues.zipCode)) {
         errors.zipCode = 'Invalid Zip Code';
     }
 
