@@ -29,7 +29,7 @@ public class PaymentController {
     @PostMapping("/payment")
     public ResponseEntity<PaymentStatus> chargeCustomer(@RequestBody CardToken cardToken) {
 
-        Stripe.apiKey = "sk_test_51K5H8GIn60CVzGvBSq0ZFqOrqVSzn6LhGEqVtDRb4nwtJXjSk3XYxanbScPvQvqDG3IBLjYxoShfakKGt8IotOec00VTtoqqAK";
+        Stripe.apiKey = "sk_test_51K5H8GIn60CVzGvBBrZ2yXWuO4WHAZUIUptfHcpksVwVRxBnoL6SqRlm53kFByQm9Fwasl8y4IFsTLHQiIFAQhlY00RxQtErl5";
         Stripe.setMaxNetworkRetries(2);
 
         Charge charge;

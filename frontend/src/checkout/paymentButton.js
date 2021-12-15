@@ -63,7 +63,7 @@ class PaymentButton extends Component {
                     this.renderButton():
                     <StripeCheckout
                         token={this.onToken}
-                        stripeKey={'pk_test_51K5H8GIn60CVzGvBf6QJsVc2cee3OIjd8EyIODi6IZFMOlhgR0d1xipf4Dg55eemqolBIKDapf5dnPRvS6RAQlAp00i1p4Bg1S'}
+                        stripeKey={'pk_test_51K5H8GIn60CVzGvB75HwGhgjjZ31rdoSKEKEsg6kyjOcj4vDE52ZTtqU32k0e1NuySWHUKlMQEWvP1gf4xPXZqVv00hEQug4fw'}
                         name="Target-Angle Rock-Band"
                         amount={this.getGrandTotal()} // cents
                         currency="RUB">
