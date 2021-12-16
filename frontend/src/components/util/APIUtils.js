@@ -56,3 +56,16 @@ export function getAllChatMessages(){
         method: 'GET'
     });
 }
+
+export async function sendEmail(body) {
+    const response = await fetch('http://localhost:8080/scheduleEmail', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
+    if (!response.ok) {
+        throw new Error('json error');
+    }
+}

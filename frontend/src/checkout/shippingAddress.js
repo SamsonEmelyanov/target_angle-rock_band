@@ -59,7 +59,8 @@ class ShippingAddressForm extends Component {
                 `${formValues.city}, ${formValues.stateCode} ${formValues.zipCode}`,
                 formValues.email,
                 `(${formValues.phoneNumber.slice(0, 3)}) ` +
-                `${formValues.phoneNumber.slice(3, 6)}-${formValues.phoneNumber.slice(6, 10)}`
+                `${formValues.phoneNumber.slice(3, 6)}-${formValues.phoneNumber.slice(6, 10)}`,
+                formValues.commentToOrder
             ]
 
             return (
@@ -146,6 +147,15 @@ class ShippingAddressForm extends Component {
                                     component={renderReduxTextField}
                                     label="Phone Number"
                                     props={{placeholder: "123-123-1234", shrink: true}}
+                                />
+                            </Grid>
+
+                            <Grid item container xs={11} sm={8}>
+                                <Field
+                                    name="commentToOrder"
+                                    component={renderReduxTextField}
+                                    label="Comment To Order (optional)"
+                                    props={{placeholder: "Clothing Size, other requirements for the order", shrink: true}}
                                 />
                             </Grid>
 

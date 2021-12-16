@@ -1,9 +1,29 @@
 spring:
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      username: samson.emelyanov@gmail.com
+      password: //your email password
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+    quartz:
+      job-store-type: jdbc
+      jdbc:
+        schema:
+          classpath: org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql
+      properties:
+        org:
+          quartz:
+            threadPool:
+              threadCount: 5
     datasource:
         url: jdbc:mysql://localhost:3306/target_angle?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
         username: root
-        password:
-
+        password: //your MySQL DB password
     jpa:
         show-sql: true
         hibernate:
