@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import log from 'loglevel'
 import {Grid} from "@material-ui/core";
 import {stateCodes} from './constants/stateCodes'
@@ -44,7 +44,7 @@ export const SuccessPayment = () => {
     const renderShippingAddress = () => {
         const dt = DateTime.local();
         const shoppedProducts = [];
-        shoppingBagProducts.forEach(elem=>shoppedProducts.push(`
+        shoppingBagProducts.forEach(elem=>shoppedProducts.push(`<br>
                 ${elem.name}<br>
                 Количество: ${elem.qtty} X ${elem.price}р. = ${elem.price * elem.qtty}р.<br>
                 <img src=${elem.imageURL}
@@ -57,7 +57,7 @@ export const SuccessPayment = () => {
                         <span>Благодарю за покупку в нашем магазине.<br>
                         Детали заказа:<br>
                         Адресс доставки: ${shippingAddressForm.addressLine1},<br>
-                            ${shippingAddressForm.addressLine2 ? shippingAddressForm.addressLine2: "<span></span>"},<br>
+                            ${shippingAddressForm.addressLine2 ? `${shippingAddressForm.addressLine2},<br>`: "<span></span>"}
                             ${shippingAddressForm.city},<br>
                             ${stateCodes()[shippingAddressForm.stateCode]} - ${shippingAddressForm.zipCode},<br>
             Тип доставки: ${shippingOption.deliveryType},<br>
@@ -87,7 +87,7 @@ export const SuccessPayment = () => {
                         Сведения о покупателе:<br>
                           ФИО: ${shippingAddressForm.firstName} ${shippingAddressForm.lastName},<br>
            Адресс доставки: ${shippingAddressForm.addressLine1},<br>
-                            ${shippingAddressForm.addressLine2 ? shippingAddressForm.addressLine2: "<span></span>"},<br>
+                            ${shippingAddressForm.addressLine2 ? `${shippingAddressForm.addressLine2},<br>`: "<span></span>"}
                             ${shippingAddressForm.city},<br>
                             ${stateCodes()[shippingAddressForm.stateCode]} - ${shippingAddressForm.zipCode},<br>
             Тип доставки: ${shippingOption.deliveryType},<br>
