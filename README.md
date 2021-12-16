@@ -6,3 +6,4 @@
                             BRAND: Visa,
                             CVC: Any 3 digits,
                             DATE: Any future date.
+5. Fill application.yaml according to your personal data(email service login & password, MySQL DB password).
