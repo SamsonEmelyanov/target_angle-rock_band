@@ -33,6 +33,19 @@ CREATE TABLE `chat_message` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
+CREATE TABLE `users` (
+                         `id` bigint NOT NULL AUTO_INCREMENT,
+                         `email` varchar(255) NOT NULL,
+                         `email_verified` bit(1) NOT NULL,
+                         `image_url` varchar(255) DEFAULT NULL,
+                         `name` varchar(255) NOT NULL,
+                         `password` varchar(255) DEFAULT NULL,
+                         `provider` varchar(255) NOT NULL,
+                         `provider_id` varchar(255) DEFAULT NULL,
+                         PRIMARY KEY (`id`),
+                         UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
 CREATE TABLE `contact_info` (
                                 `id` int NOT NULL AUTO_INCREMENT,
                                 `email` varchar(255) DEFAULT NULL,
