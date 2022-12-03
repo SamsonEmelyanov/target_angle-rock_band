@@ -1,61 +1,64 @@
 spring:
-    mail:
-      host: smtp.gmail.com
-      port: 587
-      username: samson.emelyanov@gmail.com
-      password: //your email password
-      properties:
-        mail:
-          smtp:
-            auth: true
-            starttls:
-              enable: true
-    quartz:
-      job-store-type: jdbc
-      jdbc:
-        schema:
-          classpath: org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql
-      properties:
-        org:
-          quartz:
-            threadPool:
-              threadCount: 5
-    datasource:
-        url: jdbc:mysql://localhost:3306/target_angle?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-        username: root
-        password: //your MySQL DB password
-    jpa:
-        show-sql: true
-        hibernate:
-            ddl-auto: update
-            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    security:
-      oauth2:
-        client:
-          registration:
-            google:
-              clientId: 5020714111-6kql02l287ea6k9h84eainiep0b7ieel.apps.googleusercontent.com
-              clientSecret: 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
-              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
-              scope:
-                - email
-                - profile
-            facebook:
-              clientId: 2844097722479256
-              clientSecret: c35b9c054a18198788994c8c975e702c
-              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
-              scope:
-                - email
-                - public_profile
-          provider:
-            facebook:
-              authorizationUri: https://www.facebook.com/v12.0/dialog/oauth
-              tokenUri: https://graph.facebook.com/v12.0/oauth/access_token
-              userInfoUri: https://graph.facebook.com/v12.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+  profiles:
+    active:
+  mail:
+    host: smtp.mail.yahoo.com
+    port: 587
+    username: targetangle_rockband@yahoo.com
+    password: nyeduzjkfefjkkkw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      schema:
+        classpath: org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql
+    properties:
+      org:
+        quartz:
+          threadPool:
+            threadCount: 5
+  datasource:
+    url: jdbc:mysql://localhost:3306/target_angle?&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: drvFI29@885
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 5020714111-6kql02l287ea6k9h84eainiep0b7ieel.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: 2844097722479256
+            clientSecret: c35b9c054a18198788994c8c975e702c
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - public_profile
+        provider:
+          facebook:
+            authorizationUri: https://www.facebook.com/v12.0/dialog/oauth
+            tokenUri: https://graph.facebook.com/v12.0/oauth/access_token
+            userInfoUri: https://graph.facebook.com/v12.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
+  url: http://localhost:8080
   auth:
     tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpirationMsec: 864000000
@@ -64,3 +67,6 @@ app:
       - http://localhost:3000/registration/oauth2/redirect
       - myandroidapp://oauth2/redirect
       - myiosapp://oauth2/redirect
+server:
+  port: 8080
+

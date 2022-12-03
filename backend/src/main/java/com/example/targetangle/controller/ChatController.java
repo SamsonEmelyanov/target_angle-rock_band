@@ -1,8 +1,10 @@
 package com.example.targetangle.controller;
 
+import com.example.targetangle.config.AppProperties;
 import com.example.targetangle.model.ChatMessage;
 import com.example.targetangle.service.ChatMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ import java.util.List;
 @Controller
 @CrossOrigin(origins = "*")
 public class ChatController {
+
+    @Value("${app.url}")
+    String appUrl;
 
     ChatMessageService chatMessageService;
 

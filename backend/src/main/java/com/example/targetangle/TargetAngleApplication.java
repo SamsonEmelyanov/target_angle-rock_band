@@ -21,6 +21,6 @@ public class TargetAngleApplication {
 	@PostConstruct
 	public void init(){
 		// Setting Spring Boot SetTimeZone
-		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
+		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Samara"));
 	}
 }
