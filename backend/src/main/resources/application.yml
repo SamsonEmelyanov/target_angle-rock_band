@@ -4,8 +4,8 @@ spring:
   mail:
     host: smtp.mail.yahoo.com
     port: 587
-    username: targetangle_rockband@yahoo.com
-    password: nyeduzjkfefjkkkw
+    username: --your
+    password: --your
     properties:
       mail:
         smtp:
@@ -24,8 +24,8 @@ spring:
             threadCount: 5
   datasource:
     url: jdbc:mysql://localhost:3306/target_angle?&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-    username: root
-    password: drvFI29@885
+    username: --your
+    password: --your
     initialization-mode: always
   jpa:
     show-sql: true
@@ -36,9 +36,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     generate-ddl: false
-  liquibase:
-    change-log: classpath:db.changelog/db.changelog-master.yaml
-    default-schema: target_angle
   security:
     oauth2:
       client:
