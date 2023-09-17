@@ -2,6 +2,7 @@
   "name": "resto",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000/",
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
@@ -62,5 +63,8 @@
     "react-input-emoji": "^4.0.9",
     "redux-form": "^8.3.8",
     "sockjs-client": "^1.5.2"
+  },
+  "engines": {
+    "node": "14.17.5"
   }
 }

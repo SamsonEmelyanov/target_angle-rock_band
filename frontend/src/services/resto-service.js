@@ -1,6 +1,7 @@
-export default class RestoService{
-    _apiBase = 'http://localhost:8080';
+import {API_BASE_URL} from "../components/constants";
 
+export default class RestoService{
+    _apiBase = API_BASE_URL;
     async getMenuItems(){
         return await this.getResource('/menu/');
     }

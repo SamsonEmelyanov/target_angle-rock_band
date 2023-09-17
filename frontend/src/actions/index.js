@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 import log from "loglevel";
 import {commonServiceAPI} from "../api/service_api";
 import axios from 'axios';
+import {API_BASE_URL} from "../components/constants";
 
 
 export const setShippingAddress = payload => {
@@ -30,7 +31,7 @@ export const sendPaymentToken = (token) => async dispatch => {
         })
     }
 
-    let url = `http://localhost:8080/payment`;
+    let url = API_BASE_URL+`/payment`;
 
     let config = {
         method: 'post',

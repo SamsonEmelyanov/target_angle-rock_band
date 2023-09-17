@@ -1,7 +1,8 @@
 import axios from 'axios';
+import {API_BASE_URL} from "../components/constants";
 
 export const commonServiceAPI = axios.create({
-    baseURL: 'http://localhost:8080'
+    baseURL: API_BASE_URL
 })
 
 

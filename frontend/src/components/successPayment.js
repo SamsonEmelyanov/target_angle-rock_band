@@ -62,7 +62,7 @@ export const SuccessPayment = () => {
                             ${stateCodes()[shippingAddressForm.stateCode]} - ${shippingAddressForm.zipCode},<br>
             Тип доставки: ${shippingOption.deliveryType},<br>
             Mobile - ${shippingAddressForm.phoneNumber},<br>
-            Comment to order - ${shippingAddressForm.commentToOrder}<br>
+            Comment to order - ${shippingAddressForm.commentToOrder}<br><br>
                         Сведения о приобретенных товарах:<br>
                          ${shoppedProducts}<br><br>
                         Оплата на сегодняшний день работает в тестовом режиме.<br>
@@ -93,7 +93,7 @@ export const SuccessPayment = () => {
             Тип доставки: ${shippingOption.deliveryType},<br>
             Mobile - ${shippingAddressForm.phoneNumber},<br>
             Email - ${shippingAddressForm.email},<br>
-            Comment to order - ${shippingAddressForm.commentToOrder}<br>
+            Comment to order - ${shippingAddressForm.commentToOrder}<br><br>
                         Сведения о приобретенных товарах:<br>
                          ${shoppedProducts}<br>
                         Квитанция об оплате: ${paymentResponse.receipt_url}<br>

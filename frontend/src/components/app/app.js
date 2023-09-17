@@ -16,7 +16,7 @@ import {SuccessPayment} from "../successPayment";
 import {CancelPayment} from "../cancelPayment";
 import Checkout from "../../checkout/checkout";
 import {Router, Route, Switch} from 'react-router-dom';
-import {ACCESS_TOKEN} from "../constants";
+import {ACCESS_TOKEN, API_BASE_URL} from "../constants";
 import Alert from "react-s-alert";
 import SockJsClient from 'react-stomp';
 import {getCurrentUser, getAllChatMessages} from "../util/APIUtils";
@@ -114,8 +114,8 @@ const App = () => {
             </Switch>
         </div>
             <SockJsClient
-                url={'http://localhost:8080/ws'}
-                topics={['http://localhost:8080/topic/public']}
+                url={API_BASE_URL+'/ws'}
+                topics={[API_BASE_URL+'/topic/public']}
                 onConnect={() => {
                     console.log("Connected to chat");
                 }}

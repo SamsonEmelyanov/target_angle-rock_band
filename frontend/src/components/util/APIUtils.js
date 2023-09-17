@@ -52,13 +52,13 @@ export function signup(signupRequest) {
 
 export function getAllChatMessages(){
     return request({
-        url: "http://localhost:8080/chat_message",
+        url: API_BASE_URL+"/chat_message",
         method: 'GET'
     });
 }
 
 export async function sendEmail(body) {
-    const response = await fetch('http://localhost:8080/scheduleEmail', {
+    const response = await fetch(API_BASE_URL+'/scheduleEmail', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

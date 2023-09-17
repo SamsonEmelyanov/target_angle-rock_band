@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import MenuListItem from '../menu-list-item';
-import { connect } from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import WithRestoService from '../hoc';
 import {menuLoaded, menuRequested, menuError, addedToCart} from '../../actions';
 import Spinner from '../spinner';
@@ -8,22 +8,23 @@ import Error from '../error';
 
 import './menu-list.scss';
 
-class MenuList extends Component {
+const MenuList = ({RestoService}) => {
 
-    componentDidMount() {
-        this.props.menuRequested();
+    const menuItems = useSelector(state=>state.mainReducer.menu);
+    const loading = useSelector(state=>state.mainReducer.loading);
+    const error = useSelector(state=>state.mainReducer.error);
+    const dispatch = useDispatch();
 
-        const {RestoService} = this.props;
+
+    useEffect(() => {
+        dispatch(menuRequested());
         RestoService.getMenuItems()
             .then(res => {
                 console.log(res);
-                this.props.menuLoaded(res);
+                dispatch(menuLoaded(res));
             })
-            .catch(() => this.props.menuError());
-    }
-
-    render() {
-        const {menuItems, loading, error, addedToCart} = this.props;
+            .catch(() => dispatch(menuError()));
+    },[])
         if (error){
             return <Error/>
         }
@@ -34,32 +35,15 @@ class MenuList extends Component {
                 return ( <MenuListItem
                             key = {menuItem.id}
                             menuItem = {menuItem }
-                            onAddToCart = {() => addedToCart(menuItem.id)}/>
+                            onAddToCart = {() => dispatch(addedToCart(menuItem.id))}/>
                 )
             })
 
         return (
             <View items = {items}/>
             )
-    }
+
 };
-
-const mapStateToProps =  (state) =>{
-    return {
-        menuItems: state.mainReducer.menu,
-        loading: state.mainReducer.loading,
-        error: state.mainReducer.error
-    }
-}
-
-
-const mapDispatchToProps = {
-    menuLoaded,
-    menuRequested,
-    menuError,
-    addedToCart
-}
-
 
 const View = ({items}) => {
 
@@ -70,4 +54,4 @@ const View = ({items}) => {
     )
 }
 
-export default WithRestoService ()( connect(mapStateToProps, mapDispatchToProps)(MenuList) );
+export default WithRestoService()(MenuList);

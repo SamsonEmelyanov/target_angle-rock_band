@@ -19,5 +19,11 @@
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="railway@containers-us-west-130.railway.app" uuid="8b8dd74e-e3a4-4483-8e58-100bf2691091">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://containers-us-west-130.railway.app:6774/railway</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -7,10 +7,11 @@ import guestPhoto from './target-angle-stuff_cabinet.png';
 import './fun-club.sass';
 import fun_club_photo1 from './6487710a69fd22ca0a9f4a05503ac229 2.png';
 import fun_club_photo2 from './Vector.svg'
+import {API_BASE_URL} from "../constants";
 
 const FunClub = ({currentUser, authenticated, data, message, setData, setText}) => {
 
-    const socket = new SockJS('http://localhost:8080/ws');
+    const socket = new SockJS(API_BASE_URL+'/ws');
     const stompClient = Stomp.over(socket);
 
     const dt = DateTime.local();
@@ -24,7 +25,7 @@ const FunClub = ({currentUser, authenticated, data, message, setData, setText}) 
                 type: 'CHAT'
             };
 
-            stompClient.send("http://localhost:8080/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+            stompClient.send(API_BASE_URL+"/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
 
         }
     }

@@ -10,3 +10,20 @@ body {
 
 }
 
+@media screen and (max-width: 1280px) and (min-width: 360px){
+   body{
+       zoom: 80%;
+   };
+    .fun-club-offer__slider{
+        transform: translateX(-357px);
+    }
+    .texts-invoke {
+        transform: translateX(40px);
+    }
+}
+
+@media screen and (max-width: 360px) {
+    body{
+        zoom: 25%;
+    };
+}

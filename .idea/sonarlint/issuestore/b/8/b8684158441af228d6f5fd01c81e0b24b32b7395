@@ -1,0 +1,14 @@
+
+R
+java:S1874"<Remove this use of "setResultTransformer"; it is deprecated.(ıäÕš
+R
+java:S1874("<Remove this use of "setResultTransformer"; it is deprecated.(ıäÕš
+R
+java:S18745"<Remove this use of "setResultTransformer"; it is deprecated.(ıäÕš
+R
+java:S1874A"<Remove this use of "setResultTransformer"; it is deprecated.(ıäÕš
+
+java:S1319"fThe type of "mapParams" should be an interface such as "Map" rather than the implementation "HashMap".(ÄÂ’éıÿÿÿÿ
+|
+java:S1319"fThe type of "mapParams" should be an interface such as "Map" rather than the implementation "HashMap".(¬‡à“
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘É²¸ûÿÿÿÿ
