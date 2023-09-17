@@ -1,19 +1,4 @@
-DROP TABLE IF EXISTS `address_info`;
-DROP TABLE IF EXISTS `apparel_category`;
-DROP TABLE IF EXISTS `carousel_images`;
-DROP TABLE IF EXISTS `chat_message`;
-DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `contact_info`;
-DROP TABLE IF EXISTS `gender_category`;
-DROP TABLE IF EXISTS `price_range_category`;
-DROP TABLE IF EXISTS `product_brand_category`;
-DROP TABLE IF EXISTS `apparel_images`;
-DROP TABLE IF EXISTS `bank_info`;
-DROP TABLE IF EXISTS `brand_images`;
-DROP TABLE IF EXISTS `order_info`;
-DROP TABLE IF EXISTS `product_info`;
-
-CREATE TABLE `address_info` (
+CREATE TABLE if not exists `address_info` (
                                 `id` int NOT NULL AUTO_INCREMENT,
                                 `country` varchar(255) DEFAULT NULL,
                                 `first_line` varchar(255) DEFAULT NULL,
@@ -23,13 +8,13 @@ CREATE TABLE `address_info` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `apparel_category` (
+CREATE TABLE if not exists `apparel_category` (
                                     `id` int NOT NULL AUTO_INCREMENT,
                                     `type` varchar(255) DEFAULT NULL,
                                     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `carousel_images` (
+CREATE TABLE if not exists `carousel_images` (
                                    `id` int NOT NULL AUTO_INCREMENT,
                                    `image_local_path` varchar(255) DEFAULT NULL,
                                    `imageurl` varchar(255) DEFAULT NULL,
@@ -37,7 +22,7 @@ CREATE TABLE `carousel_images` (
                                    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `chat_message` (
+CREATE TABLE if not exists `chat_message` (
                                 `id` bigint NOT NULL AUTO_INCREMENT,
                                 `content` varchar(255) DEFAULT NULL,
                                 `date` datetime DEFAULT NULL,
@@ -47,7 +32,7 @@ CREATE TABLE `chat_message` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `users` (
+CREATE TABLE if not exists `users` (
                          `id` bigint NOT NULL AUTO_INCREMENT,
                          `email` varchar(255) NOT NULL,
                          `email_verified` bit(1) NOT NULL,
@@ -60,7 +45,7 @@ CREATE TABLE `users` (
                          UNIQUE KEY `UK6dotkott2kjsp8vw4d0m25fb7` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `contact_info` (
+CREATE TABLE if not exists `contact_info` (
                                 `id` int NOT NULL AUTO_INCREMENT,
                                 `email` varchar(255) DEFAULT NULL,
                                 `mobile` varchar(255) DEFAULT NULL,
@@ -69,25 +54,25 @@ CREATE TABLE `contact_info` (
                                 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `gender_category` (
+CREATE TABLE if not exists `gender_category` (
                                    `id` int NOT NULL,
                                    `type` varchar(255) DEFAULT NULL,
                                    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `price_range_category` (
+CREATE TABLE if not exists `price_range_category` (
                                         `id` int NOT NULL,
                                         `type` varchar(255) DEFAULT NULL,
                                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `product_brand_category` (
+CREATE TABLE if not exists `product_brand_category` (
                                           `id` int NOT NULL AUTO_INCREMENT,
                                           `type` varchar(255) DEFAULT NULL,
                                           PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `apparel_images` (
+CREATE TABLE if not exists `apparel_images` (
                                   `id` int NOT NULL AUTO_INCREMENT,
                                   `image_local_path` varchar(255) DEFAULT NULL,
                                   `imageurl` varchar(255) DEFAULT NULL,
@@ -101,7 +86,7 @@ CREATE TABLE `apparel_images` (
                                   CONSTRAINT `FKdppl4w7x3149j5vskuxr27fbp` FOREIGN KEY (`gender_id`) REFERENCES `gender_category` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `bank_info` (
+CREATE TABLE if not exists `bank_info` (
                              `id` int NOT NULL AUTO_INCREMENT,
                              `account_number` varchar(255) DEFAULT NULL,
                              `bank_name` varchar(255) DEFAULT NULL,
@@ -119,7 +104,7 @@ CREATE TABLE `bank_info` (
                              CONSTRAINT `FKlt5lxtmmschwmaik8bk7e081d` FOREIGN KEY (`address_id`) REFERENCES `address_info` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `brand_images` (
+CREATE TABLE if not exists `brand_images` (
                                 `id` int NOT NULL AUTO_INCREMENT,
                                 `image_local_path` varchar(255) DEFAULT NULL,
                                 `imageurl` varchar(255) DEFAULT NULL,
@@ -131,7 +116,7 @@ CREATE TABLE `brand_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-CREATE TABLE `order_info` (
+CREATE TABLE if not exists `order_info` (
                               `id` int NOT NULL AUTO_INCREMENT,
                               `customer_id` int NOT NULL,
                               `delivery_status` varchar(255) DEFAULT NULL,
@@ -146,7 +131,7 @@ CREATE TABLE `order_info` (
                               CONSTRAINT `FKm54qruhhds5mlklmo9fcf7tcm` FOREIGN KEY (`product_id`) REFERENCES `order_info` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `product_info` (
+CREATE TABLE if not exists `product_info` (
                                 `id` int NOT NULL AUTO_INCREMENT,
                                 `available_quantity` int NOT NULL,
                                 `delivery_time` int NOT NULL,
