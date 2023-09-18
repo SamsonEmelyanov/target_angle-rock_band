@@ -57,8 +57,6 @@ Y
 )frontend/src/components/successPayment.js,7\d\7d0f5c5c919a9c2cb74344c139546ee88adb6233
 Z
 *frontend/src/components/constants/index.js,8\d\8d3b6e449cb566d0989da975676dc78c5b1513b5
-V
-&frontend/src/services/resto-service.js,9\7\979e8f08533577486213e0e7027362d7dbc48b16
 E
 frontend/package.json,3\7\37083060967a471c011a16651e22bdc2ade41759
 O
@@ -83,5 +81,3 @@ m
 =backend/src/main/java/com/example/targetangle/model/User.java,5\0\50d1c7b4779de17bccaafe4a0158eb17bd6c3ee9
 h
 8frontend/src/components/menu-list-item/menu-list-item.js,4\e\4e6e00f6ec305e1018f81e6fa051b8c57aa0ebc5
-^
-.frontend/src/components/menu-list/menu-list.js,b\7\b700eefa11a2052125e19b9b5dfbdae3fbb2377b

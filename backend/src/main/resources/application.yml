@@ -2,10 +2,10 @@ spring:
   profiles:
     active:
   mail:
-    host: smtp.mail.yahoo.com
+    host: --your smtp mail host
     port: 587
-    username: --your
-    password: --your
+    username: --your username
+    password: --your password
     properties:
       mail:
         smtp:
@@ -24,13 +24,13 @@ spring:
             threadCount: 5
   datasource:
     url: jdbc:mysql://localhost:3306/target_angle?&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-    username: --your
-    password: --your
+    username: --your username
+    password: --your password
     initialization-mode: always
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
