@@ -2,10 +2,10 @@ spring:
   profiles:
     active:
   mail:
-    host: --your smtp mail host
+    host: ${SMTP_MAIL_HOST:-}
     port: 587
-    username: --your username
-    password: --your password
+    username: ${SMTP_MAIL_USERNAME:-}
+    password: ${SMTP_MAIL_PASSWORD:-}
     properties:
       mail:
         smtp:
@@ -23,9 +23,9 @@ spring:
           threadPool:
             threadCount: 5
   datasource:
-    url: jdbc:mysql://localhost:3306/target_angle?&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-    username: --your username
-    password: --your password
+    url: ${DB_URL:-}
+    username: ${MYSQL_USER:-}
+    password: ${MYSQL_ROOT_PASSWORD:-}
     initialization-mode: always
   jpa:
     show-sql: true

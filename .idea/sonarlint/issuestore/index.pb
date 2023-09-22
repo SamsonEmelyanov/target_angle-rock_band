@@ -5,8 +5,6 @@ nbackend/src/main/java/com/example/targetangle/shop/commonDataService/service/in
 dbackend/src/main/java/com/example/targetangle/shop/commonDataService/model/HomeTabsDataResponse.java,5\c\5c5b91262255ba847f9ca90f1a24926997d13f72
 ž
 nbackend/src/main/java/com/example/targetangle/shop/commonDataService/entity/sql/categories/SortByCategory.java,5\8\589e41a7d47664874adb539ee4cff5d689f73217
-¥
-ubackend/src/main/java/com/example/targetangle/shop/commonDataService/dao/sql/categories/SortByCategoryRepository.java,1\2\120671bdc316eda9601b8e9cd665bc9b28e40229
 ’
 bbackend/src/main/java/com/example/targetangle/shop/commonDataService/model/MainScreenResponse.java,0\f\0f1c11cf64fb50a51bf444f84c4f86c5803740db
 ¨
@@ -19,16 +17,12 @@ lbackend/src/main/java/com/example/targetangle/shop/commonDataService/dao/sql/in
 ]backend/src/main/java/com/example/targetangle/security/oauth2/user/OAuth2UserInfoFactory.java,6\4\640e22a45673375ba2f09e1c18ab17c0bac73633
 Š
 Zbackend/src/main/java/com/example/targetangle/security/oauth2/CustomOAuth2UserService.java,d\6\d612bd3a32d474c748776529a0a1833a20cfe5f3
-w
-Gbackend/src/main/java/com/example/targetangle/config/AppProperties.java,7\e\7e1c10693261a93cec4dbb233be22cc66bee4c92
 v
 Fbackend/src/main/java/com/example/targetangle/service/UserService.java,7\2\7222b550b7edcfc42a3c216d52e3c48f74d1013f
 •
 ebackend/src/main/java/com/example/targetangle/shop/commonDataService/entity/sql/info/AddressInfo.java,5\2\526ff949a9177c27fa6d26c24814ef7ad1cc10c5
 ¦
 vbackend/src/main/java/com/example/targetangle/shop/commonDataService/dao/sql/info/queryhelpers/ProductQueryHelper.java,a\c\acc6177cde05ddd685981a4ec646428336419207
-¥
-ubackend/src/main/java/com/example/targetangle/shop/commonDataService/dao/sql/info/impl/ProductInfoRepositoryImpl.java,6\8\683f1b87009418807b57c597ec8d0a7bc5c81d9b
 x
 Hbackend/src/main/java/com/example/targetangle/config/SecurityConfig.java,0\e\0ec01d55b3b24129cfdd3536f50a371452c7ce50
 •
@@ -63,8 +57,6 @@ O
 frontend/src/api/service_api.js,6\e\6eff26fa929137b27cd142dc869a0f54ba4596bb
 v
 Fbackend/src/main/java/com/example/targetangle/config/WebMvcConfig.java,c\c\cc3d62a0d1dc47ea512c8b615a7ce14d13a7179a
-—
-gbackend/src/main/java/com/example/targetangle/shop/commonDataService/service/CommonDataServiceImpl.java,0\2\023dfec76bbb53d32093a8476514cce85f017d25
 }
 Mbackend/src/main/java/com/example/targetangle/service/ChatMessageService.java,6\1\610629c4f6dd7ed26859a67ad7c2029fd3cb53a1
 “
