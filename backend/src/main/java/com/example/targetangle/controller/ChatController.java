@@ -1,6 +1,5 @@
 package com.example.targetangle.controller;
 
-import com.example.targetangle.config.AppProperties;
 import com.example.targetangle.model.ChatMessage;
 import com.example.targetangle.service.ChatMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +22,7 @@ import java.util.List;
 public class ChatController {
 
     @Value("${app.url}")
-    String appUrl;
+    private static final String appUrl = "http://localhost:8080";
 
     ChatMessageService chatMessageService;
 
@@ -44,18 +42,18 @@ public class ChatController {
         return new ResponseEntity<>(chatMessages, HttpStatus.OK);
     }
 
-    @MessageMapping("/chat.sendMessage")
-    @SendTo("http://localhost:8080/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+  @MessageMapping("/chat.sendMessage")
+  @SendTo(appUrl + "/topic/public")
+  public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
         //System.out.println(chatMessage);
         chatMessageService.saveChatMessage(chatMessage);
         return chatMessage;
     }
 
-    @MessageMapping("/chat.addUser")
-    @SendTo("http://localhost:8080/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage,
-                               SimpMessageHeaderAccessor headerAccessor) {
+  @MessageMapping("/chat.addUser")
+  @SendTo({appUrl + "/topic/public"})
+  public ChatMessage addUser(
+      @Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
         // Add username in web socket session
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         headerAccessor.getSessionAttributes().put("userimage", chatMessage.getSenderImg());

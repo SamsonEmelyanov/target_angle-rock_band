@@ -60,13 +60,13 @@ spring:
             tokenUri: https://graph.facebook.com/v12.0/oauth/access_token
             userInfoUri: https://graph.facebook.com/v12.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
-  url: http://localhost:8080
+  url: ${API_BASE_URL:-}
   auth:
     tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:3000/registration/oauth2/redirect
+      - ${OAUTH2_REDIRECT_URI:-}
       - myandroidapp://oauth2/redirect
       - myiosapp://oauth2/redirect
 server:
