@@ -2,10 +2,11 @@ meta:
   environment: jvm
   toolchain:
     name: maven
-    version: 15
+    version: 17
 
 build:
   args: -Dserver.port=80 -Pproduction
-
+  artifacts:
+    "target/*.jar": /
 run:
-  jarName: target/target-angle-0.0.1-SNAPSHOT.jar
+  jarName: target-angle-0.0.1.jar
