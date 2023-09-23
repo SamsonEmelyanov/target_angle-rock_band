@@ -2,10 +2,10 @@ spring:
   profiles:
     active:
   mail:
-    host: ${SMTP_MAIL_HOST:-}
+    host: ${SMTP_MAIL_HOST:smtp.mail.yahoo.com}
     port: 587
-    username: ${SMTP_MAIL_USERNAME:-}
-    password: ${SMTP_MAIL_PASSWORD:-}
+    username: ${SMTP_MAIL_USERNAME:username}
+    password: ${SMTP_MAIL_PASSWORD:password}
     properties:
       mail:
         smtp:
@@ -23,9 +23,9 @@ spring:
           threadPool:
             threadCount: 5
   datasource:
-    url: ${DB_URL:-}
-    username: ${MYSQL_USER:-}
-    password: ${MYSQL_ROOT_PASSWORD:-}
+    url: ${DB_URL:dbc:mysql://localhost:3306/target_angle?&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_ROOT_PASSWORD:root}
     initialization-mode: always
   jpa:
     show-sql: true
@@ -60,13 +60,13 @@ spring:
             tokenUri: https://graph.facebook.com/v12.0/oauth/access_token
             userInfoUri: https://graph.facebook.com/v12.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
 app:
-  url: ${API_BASE_URL:-}
+  url: ${API_BASE_URL:http://localhost:8080}
   auth:
     tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - ${OAUTH2_REDIRECT_URI:-}
+      - ${OAUTH2_REDIRECT_URI:http://localhost:3000/registration/oauth2/redirect}
       - myandroidapp://oauth2/redirect
       - myiosapp://oauth2/redirect
 server:
