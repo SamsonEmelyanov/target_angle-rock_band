@@ -47,14 +47,10 @@ B
 frontend/server.js,f\f\ffd7256cb39df39cd7efc955c324db16e855f5a8
 Y
 )frontend/src/components/successPayment.js,7\d\7d0f5c5c919a9c2cb74344c139546ee88adb6233
-E
-frontend/package.json,3\7\37083060967a471c011a16651e22bdc2ade41759
 O
 frontend/src/api/service_api.js,6\e\6eff26fa929137b27cd142dc869a0f54ba4596bb
 v
 Fbackend/src/main/java/com/example/targetangle/config/WebMvcConfig.java,c\c\cc3d62a0d1dc47ea512c8b615a7ce14d13a7179a
-“
-cbackend/src/main/java/com/example/targetangle/shop/paymentService/controller/PaymentController.java,4\5\450893b47d290f43341b0c9afb2d368e0ee0d488
 
 Obackend/src/main/java/com/example/targetangle/controller/SequenceGenerator.java,1\8\18aa238fb43c3997af870f79324622d4a81e7da4
 ¡
